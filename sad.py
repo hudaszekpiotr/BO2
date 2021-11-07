@@ -17,7 +17,7 @@ class DaySolution:
         self.sold_wholesale = [0] * fruit_types  # lista owoców sprzedanych w skupie
         self.warehouse = [0] * fruit_types       # lista owoców, które po danym dniu trafiły do magazynu
 
-
+        
 # informacje o danym typie owoców: nazwa, ilośc w sadzie, cena bazowa, cena skupu, mnożnik
 class FruitTypeInfo:
     def __init__(self, name: str, quantity: int, base_price: List,
