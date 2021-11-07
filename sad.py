@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from typing import List, Callable
 
 
 # postać rozwiązania aby dostać ile owoców sprzedanych 8 dnia typu 2 należy solution.days[8].sold[2]
@@ -17,10 +18,30 @@ class DaySolution:
         self.warehouse = [0] * fruit_types       # lista owoców, które po danym dniu trafiły do magazynu
 
 
+# informacje o danym typie owoców: nazwa, ilośc w sadzie, cena bazowa, cena skupu, mnożnik
+class FruitTypeInfo:
+    def __init__(self, name: str, quantity: int, base_price: List,
+                 wholesale_price: List, demand: List, multiplier: Callable):
+        self.name = name
+        self.quantity = quantity
+        self.base_price = base_price  # lista cen
+        self.wholesale_price = wholesale_price  # lista cen
+        self.demand = demand  # lista popytów
+        self.multiplier = multiplier  # funkcja
+
+
+    # sprawdza nmożnik w zależności od spełninia popytu
+    def check_multiplier(self, demand, sold):
+        k = (sold/demand) *100
+        return self.multiplier(k)
+
+
 # główna klasa
 class Sad:
-    def __init__(self):
-        pass
+    def __init__(self, fruit_types: List[FruitTypeInfo], employee_cost, magaz_cost):
+        self.fruit_types = fruit_types  # lista obiektów klasy FruitTypeInfo
+        self.employee_cost = employee_cost
+        self.magaz_cost = magaz_cost
 
     # znajduje jak najlepsze rozwiazanie, docelowo jakiś algorytm np. genetyczny
     def find_solution(self):
@@ -46,8 +67,26 @@ class Sad:
         # wywołanie powyższych funkcji funkcji i zwrócenie wyniku
         pass
 
-
-    # oblicza wartośc funkcji celu dla rozwiązania
     def calculate_objective_fun(self, solution: Solution):
-        pass
+        """
+        Funckja oblicza wartośc funkcji celu dla rozwiązania
+        :param solution: obiekt reprezentujący rozwiązanie
+        :return: profit - wartośc funkcji celu
+        """
+        profit = 0
 
+        for day_id, day in enumerate(solution.days):
+            for fruit_type_id in range(len(self.fruit_types)):
+                fruit = self.fruit_types[fruit_type_id]
+                demand = fruit.demand[day_id]
+                sold_market = day.sold_market[fruit_type_id]
+                market_price = fruit.base_price[day_id]*fruit.check_multiplier(demand=demand, sold=sold_market)
+                sold_wholesale = day.sold_wholesale[fruit_type_id]
+                wholesale_price = fruit.wholesale_price[day_id]
+
+                profit += sold_market*market_price + sold_wholesale*wholesale_price
+
+            cost = self.employee_cost[sum(day.harvested)] + self.magaz_cost[sum(day.warehouse)]
+            profit -= cost
+
+        return profit
