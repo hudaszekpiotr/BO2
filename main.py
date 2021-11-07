@@ -1,4 +1,6 @@
-from sad import Sad, FruitTypeInfo, Solution, DaySolution
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from sad import Orchard, FruitTypeInfo, Solution, DaySolution
 
 def main():
     def multiplier1(k):
@@ -22,11 +24,11 @@ def main():
             return 1
 
 
-    gruszki = FruitTypeInfo("gruszki", 100, [0]*30, [0]*30, multiplier1)
-    jablka = FruitTypeInfo("jabłka", 100, [0]*30, [0]*30, multiplier2)
-    sad = Sad([jablka, gruszki], [0]*15, [0]*10)
+    gruszki = FruitTypeInfo("gruszki", 100, [0]*30, [0]*30, [2]*30, multiplier1)
+    jablka = FruitTypeInfo("jabłka", 100, [0]*30, [0]*30, [2]*30, multiplier2)
+    orchard = Orchard([jablka, gruszki], [0]*15, [0]*10)
 
     #print(gruszki.check_multiplier(10, 5))
-    #print(sad.magaz_cost)
+    #print(orchard.magaz_cost)
 
 main()
