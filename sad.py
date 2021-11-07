@@ -11,10 +11,26 @@ class DaySolution:
         self.harvested = [0]*fruit_types    #lista spredanych
         #coś jeszcze jak trzeba
 
+#informacje o danym typie owoców: nazwa, ilośc w sadzie, cena bazowa, cena skupu, mnożnik
+class FruitTypeInfo:
+    def __init__(self, name, quantity, base_price, wholesale_price, multiplier):
+        self.name = name
+        self.quantity = quantity
+        self.base_price = base_price
+        self.wholesale_price = wholesale_price
+        self.multiplier = multiplier
+    #sprawdza nmożnik w zależności od spełninia popytu
+    def check_multiplier(self, demand, sold):
+        k = (sold/demand) *100
+        return self.multiplier(k)
+
+
 #główna klasa
 class Sad:
-    def __init__(self):
-        pass
+    def __init__(self, fruit_types, employee_cost, magaz_cost):
+        self.fruit_types = fruit_types
+        self.employee_cost = employee_cost
+        self.magaz_cost = magaz_cost
 
     #znajduje jak najlepsze rozwiazanie, docelowo jakiś algorytm np. genetyczny
     def find_solution(self):
@@ -43,4 +59,6 @@ class Sad:
     #oblicza wartośc funkcji celu dla rozwiązania
     def calculate_objective_fun(self, solution: Solution):
         pass
+
+
 
