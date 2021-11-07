@@ -37,7 +37,7 @@ class FruitTypeInfo:
 
 
 # główna klasa
-class Sad:
+class Orchard:
     def __init__(self, fruit_types: List[FruitTypeInfo], employee_cost, magaz_cost):
         self.fruit_types = fruit_types  # lista obiektów klasy FruitTypeInfo
         self.employee_cost = employee_cost
