@@ -51,5 +51,3 @@ class Sad:
     def calculate_objective_fun(self, solution: Solution):
         pass
 
-
-
