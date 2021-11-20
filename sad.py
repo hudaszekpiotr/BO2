@@ -1,47 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from typing import List, Callable
-
-
-# postać rozwiązania aby dostać ile owoców sprzedanych 8 dnia typu 2 należy solution.days[7].sold[1]
-class Solution:
-    def __init__(self, fruit_types):
-        self.days = [DaySolution(fruit_types)] * 30
-
-
-# postać rozwiązania dla 1 dnia
-class DaySolution:
-    def __init__(self, fruit_types):
-        self.harvested = [0] * fruit_types  # lista zebranych owoców danego dnia (każdy indeks to inny typ owocu)
-        self.sold_market = [0] * fruit_types  # lista owoców sprzedanych na targu (każdy indeks to inny typ owocu)
-        self.sold_wholesale = [0] * fruit_types  # lista owoców sprzedanych w skupie (każdy indeks to inny typ owocu)
-        self.warehouse = [0] * fruit_types  # lista owoców, które po danym dniu trafiły do magazynu (każdy indeks to inny typ owocu)
-
-
-# informacje o danym typie owoców: nazwa, ilośc w sadzie, cena bazowa, cena skupu, mnożnik
-class FruitTypeInfo:
-    def __init__(self, name: str, quantity: int, base_price: List,
-                 wholesale_price: List, demand: List, min_market_sold: int, multiplier: Callable):
-        self.name = name  # nazwa owocu
-        self.quantity = quantity  # ilość owoców danego typu
-        self.base_price = base_price  # lista cen (indeksy to poszczególne dni miesiąca)
-        self.wholesale_price = wholesale_price  # lista cen (indeksy to poszczególne dni miesiąca)
-        self.demand = demand  # lista popytów
-        self.min_market_sold = min_market_sold  # minimalna ilość jaka musi zostać sprzedana na targu w ciągu miesiąca
-        self.multiplier = multiplier  # funkcja
-
-    # sprawdza nmożnik w zależności od spełninia popytu
-    def check_multiplier(self, demand, sold):
-        k = (sold / demand) * 100
-        return self.multiplier(k)
-
+from solution_classes import Solution, DaySolution, FruitTypeInfo
+from model_limits import check_fruit_limits, check_harvest_limits, \
+    check_warehouse_limits, check_minimum_amount_sold, check_if_warehouse_sold, check_if_today_amount_correct
+from copy import deepcopy
 
 # główna klasa
 class Orchard:
     def __init__(self, fruit_types: List[FruitTypeInfo], employee_cost: Callable,
                  warehouse_cost: Callable, max_daily_harvest: int, warehouse_capacity: int):
         """
-
         :param fruit_types: lista obiektów klasy FruitTypeInfo (każdy indeks to inny typ owocu)
         :param employee_cost: funkcja zwracająca koszta zebrania
                               pewnej ilości owoców
@@ -60,115 +29,122 @@ class Orchard:
     def find_solution(self):
         pass
 
-    def check_fruit_limits(self, solution: Solution):
-        """
-        Funkcja sprawdzająca czy łączne zbiory danego
-        typu owocu nie przekraczają fizycznej ilości danego typu owocu.
+    def generate_all_to_wholesale(self, harvest_per_type: List[int]):
+        fruit_types_count = len(self.fruit_types)
+        fruits_left = {}
+        for f_type in self.fruit_types:
+            fruits_left[f_type.name] = f_type.quantity
 
-        Zwraca True jeśli limit został spełniony, w innym przypadku
-        zwraca False
+        solution = Solution(fruit_types_count)
+        for i, _ in enumerate(solution.days):
+            for j, f_type in enumerate(self.fruit_types):
+                f_left = fruits_left[f_type.name]
+                if harvest_per_type[j] <= f_left:
+                    solution.days[i].harvested[j] = harvest_per_type[j]
+                    fruits_left[f_type.name] -= harvest_per_type[j]
+                else:
+                    solution.days[i].harvested[j] = f_left
+                    fruits_left[f_type.name] -= f_left
+                solution.days[i].sold_wholesale[j] = solution.days[i].harvested[j]
+        return solution
 
-        :param solution: rozwiązanie
-        :return: boolean
-        """
-        # Lista przechowująca łączne zbiory każdego typu.
-        # Indeks odpowiada typowi owocu.
-        total_harvested = [0] * len(self.fruit_types)
+    def generate_satisfy_demand(self, harvest_per_type: List[int], demand_rate: float):
+        fruit_types_count = len(self.fruit_types)
+        fruits_left = {}
+        for f_type in self.fruit_types:
+            fruits_left[f_type.name] = f_type.quantity
 
-        for day in solution.days:
-            harv = day.harvested
-            # w poniższej pętli dodaję do łącznej
-            # liczby zbiorów zbiory z danego danego dnia
-            for i in range(len(total_harvested)):
-                total_harvested[i] += harv[i]
+        solution = Solution(fruit_types_count)
+        percent_to_wholesale = 0.7
+        for i, day in enumerate(solution.days):
+            for j, f_type in enumerate(self.fruit_types):
+                f_left = fruits_left[f_type.name]
+                if harvest_per_type[j] <= f_left:
+                    solution.days[i].harvested[j] = harvest_per_type[j]
+                    fruits_left[f_type.name] -= harvest_per_type[j]
+                else:
+                    solution.days[i].harvested[j] = f_left
+                    fruits_left[f_type.name] -= f_left
+                demand = int(f_type.demand[i]*demand_rate)
+                if i == 0:
+                    # Pierwszy dzień (brak magazynu)
+                    if demand >= solution.days[i].harvested[j]:
+                        solution.days[i].sold_market[j] = solution.days[i].harvested[j]
+                        leftovers = 0
+                    else:
+                        solution.days[i].sold_market[j] = demand
+                        leftovers = solution.days[i].harvested[j] - demand
+                        solution.days[i].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
+                else:
+                    if demand > solution.days[i - 1].warehouse[j]:
+                        # Popyt większy niż owoce z magazynu
+                        solution.days[i].sold_market[j] = solution.days[i - 1].warehouse[j]
+                        if demand - solution.days[i - 1].warehouse[j] >= solution.days[i].harvested[j]:
+                            solution.days[i].sold_market[j] += solution.days[i].harvested[j]
+                            leftovers = 0
+                        else:
+                            solution.days[i].sold_market[j] = demand
+                            leftovers = solution.days[i].harvested[j] - (demand - solution.days[i - 1].warehouse[j])
+                            solution.days[i].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
+                    elif demand == solution.days[i - 1].warehouse[j]:
+                        # Popyt równy owocom z magazynu
+                        solution.days[i].sold_market[j] = solution.days[i - 1].warehouse[j]
+                        leftovers = solution.days[i].harvested[j]
+                        solution.days[i].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
+                    else:
+                        # Popyt mniejszy niż owoce z magazynu
+                        solution.days[i].sold_market[j] = demand
+                        leftovers = solution.days[i].harvested[j]
+                        solution.days[i].sold_wholesale[j] = int(percent_to_wholesale*leftovers) + \
+                                                             solution.days[i-1].warehouse[j] - demand
 
-        result = True
-        for id, fruit in enumerate(self.fruit_types):
-            if total_harvested[id] > fruit.quantity:
-                # Jeśli łączna ilość zebranych owoców
-                # z danego typu będzie większa niż
-                # istniejąca ilość owoców, to znaczy
-                # że warunek nie został spełniony i nie musimy dalej wykonywać pętli
-                result = False
+                if leftovers - int(percent_to_wholesale * leftovers) + sum(solution.days[i].warehouse) <= self.warehouse_capacity:
+                    solution.days[i].warehouse[j] = leftovers - int(percent_to_wholesale * leftovers)
+                else:
+                    solution.days[i].sold_wholesale[j] += leftovers - int(percent_to_wholesale * leftovers)
+        return solution
+
+    def create_initial_population(self):
+        fruit_types_count = len(self.fruit_types)
+        solutions = []
+
+        max_har_per_type = self.max_daily_harvest // fruit_types_count
+        harvest_per_type = [max_har_per_type] * fruit_types_count
+
+        # wholesale max zbiory
+        solution = self.generate_all_to_wholesale(harvest_per_type)
+        solutions.append(deepcopy(solution))
+        solution.days = solution.days[::-1]
+        solutions.append(deepcopy(solution))
+
+        # satisfy max zbiory
+        solution = self.generate_satisfy_demand(harvest_per_type, 0.6)
+        solutions.append(deepcopy(solution))
+        solution = self.generate_satisfy_demand(harvest_per_type, 1)
+        solutions.append(deepcopy(solution))
+
+        for i in range(fruit_types_count):
+            i_end = fruit_types_count-1-i
+            if i < i_end:
+                multiplier = (fruit_types_count-1-i)/fruit_types_count
+                harvest_per_type[i] += int(harvest_per_type[i_end]*multiplier)
+                harvest_per_type[-i-1] -= int(harvest_per_type[i_end]*multiplier)
+            else:
                 break
-        return result
 
-    def check_harvest_limits(self, solution: Solution):
-        """
-        Funkcja sprawdzająca czy dzienne zbiory wszystkich
-        owoców łącznie nie przekraczają dziennego limitu zbiorów.
+        solution = self.generate_all_to_wholesale(harvest_per_type)
+        solutions.append(deepcopy(solution))
+        solution.days = solution.days[::-1]
+        solutions.append(deepcopy(solution))
 
-        Zwraca True jeśli limit został spełniony, w innym przypadku
-        zwraca False
+        solution = self.generate_satisfy_demand(harvest_per_type, 0.6)
+        solutions.append(deepcopy(solution))
+        solution = self.generate_satisfy_demand(harvest_per_type, 1)
+        solutions.append(deepcopy(solution))
 
-        :param solution: rozwiązanie
-        :return: boolean
-        """
-        result = True
-        for day in solution.days:
-            # Jeśli któregoś dnia ilość zebranych
-            # owoców będzie większa niż dopuszczalny limit
-            # to warunek nie jest spełniony i można przerwać
-            # dalszą pętlę
-            if sum(day.harvested) > self.max_daily_harvest:
-                result = False
-                break
-        return result
-
-    def check_warehouse_limits(self, solution: Solution):
-        """
-        Funkcja sprawdzająca czy zbiory przekazane do magazynu
-        nie przekraczają jego pojemności.
-
-        Zwraca True jeśli limit został spełniony, w innym przypadku
-        zwraca False
-
-        :param solution: rozwiązanie
-        :return: boolean
-        """
-        result = True
-        for day in solution.days:
-            # Jeśli któregoś dnia ilość owoców przekazanych
-            # do magazynu będzie większa niż jego pojemność
-            # to warunek nie jest spełniony i można przerwać
-            # dalszą pętlę
-            if sum(day.warehouse) > self.warehouse_capacity:
-                result = False
-                break
-        return result
-
-    def check_minimum_amount_sold(self, solution: Solution):
-        """
-        Funkcja sprawdza, czy w ciągu miesiąca zostały
-        na targu sprzedane minimlane, z góry założone, ilości
-        dla każdego typu owocu.
-
-        Zwraca True jeśli limit został spełniony, w innym przypadku
-        zwraca False
-
-        :param solution:
-        :return: boolean
-        """
-        # Lista przechowująca łączną sprzedaż na targu każdego typu.
-        # Indeks odpowiada typowi owocu.
-        total_market_sold = [0] * len(self.fruit_types)
-
-        for day in solution.days:
-            sold = day.sold_market
-            # w poniższej pętli dodaję do łącznej
-            # liczby sprzedanych owoców sprzedaż z danego dnia
-            for i in range(len(total_market_sold)):
-                total_market_sold[i] += sold[i]
-
-        result = True
-        for id, fruit in enumerate(self.fruit_types):
-            if total_market_sold[id] < fruit.min_market_sold:
-                # Jeśli łączna ilość sprzedanych na targu owoców
-                # z danego typu będzie mniejsza niż
-                # wymagany limit to znaczy, że warunek nie został spełniony
-                # i nie musimy dalej wykonywać pętli
-                result = False
-                break
+        result = []
+        for el in solutions:
+            result.append((el, self.check_if_sol_acceptable(el)))
         return result
 
     def check_if_sol_acceptable(self, solution: Solution) -> bool:
@@ -179,12 +155,16 @@ class Orchard:
         :param solution:
         :return:
         """
-        one = self.check_fruit_limits(solution)
-        two = self.check_harvest_limits(solution)
-        three = self.check_minimum_amount_sold(solution)
-        four = self.check_warehouse_limits(solution)
+        one = check_fruit_limits(solution, self.fruit_types)
+        two = check_harvest_limits(solution, self.max_daily_harvest)
+        #three = check_minimum_amount_sold(solution, self.fruit_types)
+        four = check_warehouse_limits(solution, self.warehouse_capacity)
+        five = check_if_warehouse_sold(solution)
+        six = check_if_today_amount_correct(solution)
 
-        return one and two and three and four
+        #print(one, two, four, five, six)
+
+        return one and two and four and five and six
 
     def calculate_objective_fun(self, solution: Solution):
         """
