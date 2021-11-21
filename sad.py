@@ -138,7 +138,7 @@ class Orchard:
         self.num_ok_draws = 0
 
         while T > T_stop:               #1 kryterium stopu
-            print(best_profit, T)
+            print(f"best profit: {best_profit} | temperature: {T}")
             for j in range(iterations_in_temp):
                 candidate_sol = self.draw_solution(solution, neighbour_type)        #losowanie sąsiada z otoczenia
                 candidate_sol_fun = self.calculate_objective_fun(candidate_sol)     #wyznaczenie fun celu dla wylosowanego
