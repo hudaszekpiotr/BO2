@@ -3,8 +3,12 @@
 from typing import List, Callable
 from solution_classes import Solution, DaySolution, FruitTypeInfo
 from model_limits import check_fruit_limits, check_harvest_limits, \
-    check_warehouse_limits, check_minimum_amount_sold, check_if_warehouse_sold, check_if_today_amount_correct
+    check_warehouse_limits, check_minimum_amount_sold, check_if_warehouse_sold, \
+    check_if_today_amount_correct, check_if_non_negative
 from copy import deepcopy
+import random
+import math
+import numpy as np
 
 # główna klasa
 class Orchard:
@@ -25,9 +29,133 @@ class Orchard:
         self.max_daily_harvest = max_daily_harvest
         self.warehouse_capacity = warehouse_capacity
 
-    # znajduje jak najlepsze rozwiazanie, docelowo jakiś algorytm np. genetyczny
-    def find_solution(self):
-        pass
+    #losuje dopuszcalnego sąsiada initial_solution
+    def draw_solution(self, initial_solution, neighbour_type):
+
+        #funkcja do użycia po zmianie rozwiązania w jednym dniu jednego typu owoców
+        #po zmianie stan magazynowy się zmienia co wpływa na sprzedaż następnego dnia
+        #UWAGA nie działa jesli zminimy rozwiązanie dla więcej niz jednego dnia lub typu
+        def update_warehouse(prev_solution, solution, day, type):
+            if day != 0 and day != 29:
+                solution.days[day].warehouse[type] = solution.days[day - 1].warehouse[type] + \
+                                                     solution.days[day].harvested[type] - \
+                                                     solution.days[day].sold_market[type] - \
+                                                     solution.days[day].sold_wholesale[type]
+
+                delta = solution.days[day].warehouse[type] - prev_solution.days[day].warehouse[type]
+                if delta > 0:
+                    if solution.days[day + 1].sold_market[type] + delta <= self.fruit_types[type].demand[day + 1]:
+                        solution.days[day + 1].sold_market[type] += delta
+                    else:
+                        delta_wholesale = solution.days[day + 1].sold_market[type] + delta - self.fruit_types[type].demand[day + 1]
+                        solution.days[day + 1].sold_wholesale[type] += delta_wholesale
+                        solution.days[day + 1].sold_market[type] = self.fruit_types[type].demand[day + 1]
+                else:
+                    if solution.days[day + 1].sold_wholesale[type] + delta >= 0:
+                        solution.days[day + 1].sold_wholesale[type] += delta
+                    else:
+                        delta += solution.days[day + 1].sold_wholesale[type]
+                        solution.days[day + 1].sold_wholesale[type] = 0
+                        solution.days[day + 1].sold_market[type] += delta
+
+        #UWAGA nie działa, nie uzywac, nie usuwac
+        def neighbour0(org_solution):
+            solution = deepcopy(org_solution)
+            prev_solution = deepcopy(org_solution)
+            random_days = random.sample(range(0, 30), 2)
+            random_types = random.sample(range(0, len(self.fruit_types)), 1)
+            #random_part_of_sol = random.randint(0, 2)
+
+            for day in random_days:
+                for type in random_types:
+
+                    changed = solution.days[day].harvested[type] + random.randint(-2, 2)
+                    if changed >= 0 and changed + sum(solution.days[day].harvested) - solution.days[day].harvested[type] + changed <= self.max_daily_harvest:
+                        solution.days[day].harvested[type] = changed
+
+                    changed = solution.days[day].sold_market[type] + random.randint(-2, 2)
+                    if 0 <= changed <= self.fruit_types[type].demand[day] and changed <= solution.days[day-1].warehouse[type] + solution.days[day].harvested[type]:
+                        solution.days[day].sold_market[type] = changed
+
+                    changed = solution.days[day].sold_wholesale[type] + random.randint(-2, 2)
+                    if 0 <= changed <= solution.days[day - 1].warehouse[type] + solution.days[day].harvested[type] - solution.days[day].sold_market[type]:
+                        solution.days[day].sold_wholesale[type] = changed
+                    update_warehouse(prev_solution, solution, day, type)
+
+            return solution
+
+        #losuje sąsiada w pobliżu org_solution, sąsiad może być rozwiązaniem nie dopuszczalnym
+        #zmienia w losowym dniu losowy typ o sprzedaż na markecie lub na skupie lub zbiory
+        def neighbour1(org_solution):
+            solution = deepcopy(org_solution)
+            prev_solution = deepcopy(org_solution)
+            day = random.randint(0, 29)
+            type = random.randint(0, len(self.fruit_types)-1)
+            part_of_sol = random.randint(0, 2)
+            if part_of_sol == 0:
+                changed = solution.days[day].harvested[type] + random.randint(-2, 2)
+                if changed >= 0 and changed + sum(solution.days[day].harvested) - solution.days[day].harvested[type] + changed <= self.max_daily_harvest:
+                    solution.days[day].harvested[type] = changed
+
+            if part_of_sol == 1:
+                changed = solution.days[day].sold_market[type] + random.randint(-2, 2)
+                if 0 <= changed <= self.fruit_types[type].demand[day] and changed <= solution.days[day-1].warehouse[type] + solution.days[day].harvested[type]:
+                    solution.days[day].sold_market[type] = changed
+
+            if part_of_sol == 2:
+                changed = solution.days[day].sold_wholesale[type] + random.randint(-2, 2)
+                if 0 <= changed <= solution.days[day - 1].warehouse[type] + solution.days[day].harvested[type] - solution.days[day].sold_market[type]:
+                    solution.days[day].sold_wholesale[type] = changed
+            update_warehouse(prev_solution, solution, day, type)
+
+            return solution
+
+        #wybór jednego z typów sąsiedztwa
+        neighbour_types = [neighbour0, neighbour1]
+        neighbour = neighbour_types[neighbour_type]
+
+        #prubuje zznalezc sasiada jesli w ciagu 100 losowan nie znajdzie akceptowalnego rzuca wyjątek
+        for _ in range(100):
+            sol = neighbour(initial_solution)
+            if self.check_if_sol_acceptable(sol):
+                return sol
+
+        raise Exception("error nie znaleziono otoczenia")
+
+    # znajduje jak najlepsze rozwiazanie metoda Symulowanego Wyżarzania
+    def find_solution(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha, neighbour_type, initial_sol):
+        solution = self.create_initial_population()[initial_sol][0]
+        print(solution)
+        best_solution = solution
+        best_profit = self.calculate_objective_fun(solution)
+        T = T_start
+        sol_fun_list = []
+
+        while T > T_stop:
+            print(best_profit)
+            for j in range(iterations_in_temp):
+                candidate_sol = self.draw_solution(solution, neighbour_type)
+                candidate_sol_fun = self.calculate_objective_fun(candidate_sol)
+                delta = candidate_sol_fun - self.calculate_objective_fun(solution)
+                if delta >= 0:
+                    solution = candidate_sol
+                    if candidate_sol_fun > best_profit:
+                        best_solution = solution
+                        best_profit = candidate_sol_fun
+                else:
+                    drawn_num = np.random.rand()
+                    if drawn_num < math.exp(-delta/T):
+                        solution = candidate_sol
+            T = alpha * T
+            while len(sol_fun_list) > iterations_epsilon - 1:
+                sol_fun_list.pop(0)
+            sol_fun_list.append(self.calculate_objective_fun(solution))
+
+            if len(sol_fun_list) == iterations_epsilon and max(sol_fun_list)-min(sol_fun_list) <= epsilon:
+                print("kryt stopu 2")
+                return best_solution, best_profit
+        print("kryt stopu 1")
+        return best_solution, best_profit
 
     def generate_all_to_wholesale(self, harvest_strategies: List[List]):
         """
@@ -310,10 +438,11 @@ class Orchard:
         four = check_warehouse_limits(solution, self.warehouse_capacity)
         five = check_if_warehouse_sold(solution)
         six = check_if_today_amount_correct(solution)
+        seven = check_if_non_negative(solution)
 
         #print(one, two, four, five, six)
 
-        return one and two and four and five and six
+        return one and two and four and five and six and seven
 
     def calculate_objective_fun(self, solution: Solution):
         """

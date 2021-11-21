@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from solution_classes import Solution, FruitTypeInfo
 from typing import List
+import numpy as np
 
 
 def check_fruit_limits(solution: Solution, fruit_types: List[FruitTypeInfo]):
@@ -160,14 +161,36 @@ def check_if_today_amount_correct(solution: Solution) -> bool:
         if i > 0:
             prev_warehouse = sum(solution.days[i - 1].warehouse)
             if today_sold + today_warehouse != harvest + prev_warehouse:
-                print(f"day {i}")
-                print(today_sold, today_warehouse, harvest, prev_warehouse)
                 result = False
                 break
         else:
             if today_sold + today_warehouse != harvest:
-                print(f"day {i}")
-                print(today_sold, today_warehouse, harvest)
                 result = False
                 break
+    return result
+
+
+def check_if_non_negative(solution: Solution) -> bool:
+    """
+    Funkcja sprawdzająca, czy wszystkie parametry w rozwiązaniu są
+    nieujemne.
+
+    :param solution:
+    :return:
+    """
+
+    def is_non_negative(arr):
+        result = True
+        for el in arr:
+            if el < 0:
+                result = False
+                break
+        return result
+
+    result = True
+    for i, day in enumerate(solution.days):
+        if not (is_non_negative(day.harvested) and is_non_negative(day.sold_market)
+                and is_non_negative(day.sold_wholesale) and is_non_negative(day.warehouse)):
+            result = False
+            break
     return result
