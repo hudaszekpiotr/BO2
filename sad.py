@@ -29,16 +29,22 @@ class Orchard:
     def find_solution(self):
         pass
 
-    def generate_all_to_wholesale(self, harvest_per_type: List[int]):
+    def generate_all_to_wholesale(self, harvest_strategies: List[List]):
         """
         Funkcja generuje startowe rozwiązanie z założeniem, że wszystkie zebrane
-        owoce idą na sprzedaż do skupu tego samego dnia. Parametr harvest_per_type to
-        lista odpowiadająca maksymalnej ilości owoców z danego typu zbieranej w ciągu dnia. Przykładowo
-        mamy 3 typy owoców: jabłka, gruszki, śliwki. harvest_per_type może wyglądać następująco
-        [20, 30, 25] co oznacza że w ciągu dnia zbieramy 20kg jabłek, 30kg gruszek, 25kg śliwek.
-        Jesli jednak w sadzie zostało mniej np śliwek, załóżmy 19kg, to zbieramy całą tą ilość.
+        owoce idą na sprzedaż do skupu tego samego dnia. Parametr harvest_strategies to
+        lista list gdzie wewnątrzne listy to poszczególne strategie zbiorów. Strategia składa
+        się z ilości dni przez ile dana strategia obowiązuje oraz listy odpowiadającej maksymalnej
+        ilości owoców z danego typu zbieranej w ciągu dnia. Przykładow omamy 3 typy owoców: jabłka, gruszki, śliwki.
+        harvest_strategies może wyglądać następująco
 
-        :param harvest_per_type:
+        [[15,[20, 30, 25]], [15,[10, 25, 19]]] co oznacza, że przez
+        pierwsze 15 dni zbierazmy dziennie 20kg jabłek, 30kg gruszek, 25kg śliwek a przez kolejne 15 dni
+        10kg jabłek, 25kg gruszek, 19kg śliwek. Oczywiście, jeżeli danego w sadzie zostało już mniej owoców niż
+        wynika to z powyższych paramterów to zbieramy tą mniejszą ilość owoców tym samym wykańczając zapasy
+        danego owocu w sadzie.
+
+        :param harvest_strategies:
         :return: startowe rozwiązanie
         """
         # ilość rodzajów owoców
@@ -51,31 +57,37 @@ class Orchard:
             fruits_left[f_type.name] = f_type.quantity
 
         solution = Solution(fruit_types_count)
-        for i, _ in enumerate(solution.days):
-            for j, f_type in enumerate(self.fruit_types):
-                # Ile owoców wciąż mamy w sadzie
-                f_left = fruits_left[f_type.name]
 
-                # Określenie wielkości zbiorów danego dnia
-                if harvest_per_type[j] <= f_left:
-                    solution.days[i].harvested[j] = harvest_per_type[j]
-                    fruits_left[f_type.name] -= harvest_per_type[j]
-                else:
-                    solution.days[i].harvested[j] = f_left
-                    fruits_left[f_type.name] -= f_left
-                solution.days[i].sold_wholesale[j] = solution.days[i].harvested[j]
+        day_id = 0
+        for strategy in harvest_strategies:
+            harvest_per_type = strategy[1]
+            for i in range(strategy[0]):
+                for j, f_type in enumerate(self.fruit_types):
+                    # Ile owoców wciąż mamy w sadzie
+                    f_left = fruits_left[f_type.name]
+
+                    # Określenie wielkości zbiorów danego dnia
+                    if harvest_per_type[j] <= f_left:
+                        solution.days[day_id].harvested[j] = harvest_per_type[j]
+                        fruits_left[f_type.name] -= harvest_per_type[j]
+                    else:
+                        solution.days[day_id].harvested[j] = f_left
+                        fruits_left[f_type.name] -= f_left
+                    solution.days[day_id].sold_wholesale[j] = solution.days[day_id].harvested[j]
+                day_id += 1
+
         return solution
 
-    def generate_satisfy_demand(self, harvest_per_type: List[int], demand_rate: float):
+    def generate_satisfy_demand(self, harvest_strategies: List[List], demand_rate: float):
         """
         Funkcja generuje startowe rozwiązanie z założeniem, że każde dnia staramy się spełnić
         popyt na dany owoc. Parametr demand_rate przyjmujący wartości z zakresu [0-1] określa
         jaki procent popytu dla każdego owocu staramy się zadowolić naszym startowym rozwiązaniem
         Przykładowo demand_rate=0.6 oznacza, że każdego dnia staramy się zaspokoić 60% popytu
-        na każdy owoc aż do wyczerpania zasobów owoców. Parametr harvest_per_type działa identycznie jak w
+        na każdy owoc aż do wyczerpania zasobów owoców. Parametr harvest_strategies działa identycznie jak w
         funkcji generate_all_to_wholesale.
 
-        :param harvest_per_type:
+        :param harvest_strategies:
         :param demand_rate:
         :return: startowe rozwiązanie
         """
@@ -98,71 +110,77 @@ class Orchard:
         # ją do skupu.
         percent_to_wholesale = 0.7
 
-        for i, day in enumerate(solution.days):
-            for j, f_type in enumerate(self.fruit_types):
-                # Ile owoców wciąż mamy w sadzie
-                f_left = fruits_left[f_type.name]
+        day_id = 0
+        for strategy in harvest_strategies:
+            harvest_per_type = strategy[1]
+            for i in range(strategy[0]):
+                for j, f_type in enumerate(self.fruit_types):
+                    # Ile owoców wciąż mamy w sadzie
+                    f_left = fruits_left[f_type.name]
 
-                # Określenie wielkości zbiorów danego dnia
-                if harvest_per_type[j] <= f_left:
-                    solution.days[i].harvested[j] = harvest_per_type[j]
-                    fruits_left[f_type.name] -= harvest_per_type[j]
-                else:
-                    solution.days[i].harvested[j] = f_left
-                    fruits_left[f_type.name] -= f_left
-
-                # Popyt jaki staramy się zaspokoić
-                demand = int(f_type.demand[i]*demand_rate)
-                if i == 0:
-                    # Pierwszy dzień (brak magazynu z dnia poprzedniego)
-                    if demand >= solution.days[i].harvested[j]:
-                        solution.days[i].sold_market[j] = solution.days[i].harvested[j]
-                        # pozostałości przeznaczone do skupu lub magazynu
-                        leftovers = 0
+                    # Określenie wielkości zbiorów danego dnia
+                    if harvest_per_type[j] <= f_left:
+                        solution.days[day_id].harvested[j] = harvest_per_type[j]
+                        fruits_left[f_type.name] -= harvest_per_type[j]
                     else:
-                        solution.days[i].sold_market[j] = demand
-                        # pozostałości przeznaczone do skupu lub magazynu
-                        leftovers = solution.days[i].harvested[j] - demand
-                        solution.days[i].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
-                else:
-                    if demand > solution.days[i - 1].warehouse[j]:
-                        # Popyt większy niż ilość owoców z magazynu z poprzedniego dnia
-                        solution.days[i].sold_market[j] = solution.days[i - 1].warehouse[j]
-                        if demand - solution.days[i - 1].warehouse[j] >= solution.days[i].harvested[j]:
-                            # Sytuacja gdy owoce z magazynu nie zaspokoiły popytu na targu a ilość
-                            # zebranych owoców jest na tyle niska że możemy wszystkie również przeznaczyć
-                            # do sprzedaży na targu
-                            solution.days[i].sold_market[j] += solution.days[i].harvested[j]
+                        solution.days[day_id].harvested[j] = f_left
+                        fruits_left[f_type.name] -= f_left
+
+                    # Popyt jaki staramy się zaspokoić
+                    demand = int(f_type.demand[day_id] * demand_rate)
+                    if day_id == 0:
+                        # Pierwszy dzień (brak magazynu z dnia poprzedniego)
+                        if demand >= solution.days[day_id].harvested[j]:
+                            solution.days[day_id].sold_market[j] = solution.days[day_id].harvested[j]
                             # pozostałości przeznaczone do skupu lub magazynu
                             leftovers = 0
                         else:
-                            # Sytuacja gdy owoce z magazynu nie zaspokoiły popytu na targu a ilość
-                            # zebranych owoców wystarcza na zaspokojenie tego popytu oraz zostaje nam
-                            # jeszcze trochę wolnych owoców
-                            solution.days[i].sold_market[j] = demand
+                            solution.days[day_id].sold_market[j] = demand
                             # pozostałości przeznaczone do skupu lub magazynu
-                            leftovers = solution.days[i].harvested[j] - (demand - solution.days[i - 1].warehouse[j])
-                            solution.days[i].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
-                    elif demand == solution.days[i - 1].warehouse[j]:
-                        # Popyt równy owocom z magazynu
-                        solution.days[i].sold_market[j] = solution.days[i - 1].warehouse[j]
-                        # pozostałości przeznaczone do skupu lub magazynu
-                        leftovers = solution.days[i].harvested[j]
-                        solution.days[i].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
+                            leftovers = solution.days[day_id].harvested[j] - demand
+                            solution.days[day_id].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
                     else:
-                        # Popyt mniejszy niż owoce z magazynu
-                        solution.days[i].sold_market[j] = demand
-                        # pozostałości przeznaczone do skupu lub magazynu
-                        leftovers = solution.days[i].harvested[j]
-                        solution.days[i].sold_wholesale[j] = int(percent_to_wholesale*leftovers) + \
-                                                             solution.days[i-1].warehouse[j] - demand
+                        if demand > solution.days[day_id - 1].warehouse[j]:
+                            # Popyt większy niż ilość owoców z magazynu z poprzedniego dnia
+                            solution.days[day_id].sold_market[j] = solution.days[day_id - 1].warehouse[j]
+                            if demand - solution.days[day_id - 1].warehouse[j] >= solution.days[day_id].harvested[j]:
+                                # Sytuacja gdy owoce z magazynu nie zaspokoiły popytu na targu a ilość
+                                # zebranych owoców jest na tyle niska że możemy wszystkie również przeznaczyć
+                                # do sprzedaży na targu
+                                solution.days[day_id].sold_market[j] += solution.days[day_id].harvested[j]
+                                # pozostałości przeznaczone do skupu lub magazynu
+                                leftovers = 0
+                            else:
+                                # Sytuacja gdy owoce z magazynu nie zaspokoiły popytu na targu a ilość
+                                # zebranych owoców wystarcza na zaspokojenie tego popytu oraz zostaje nam
+                                # jeszcze trochę wolnych owoców
+                                solution.days[day_id].sold_market[j] = demand
+                                # pozostałości przeznaczone do skupu lub magazynu
+                                leftovers = solution.days[day_id].harvested[j] - (demand - solution.days[day_id - 1].warehouse[j])
+                                solution.days[day_id].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
+                        elif demand == solution.days[day_id - 1].warehouse[j]:
+                            # Popyt równy owocom z magazynu
+                            solution.days[day_id].sold_market[j] = solution.days[day_id - 1].warehouse[j]
+                            # pozostałości przeznaczone do skupu lub magazynu
+                            leftovers = solution.days[day_id].harvested[j]
+                            solution.days[day_id].sold_wholesale[j] = int(percent_to_wholesale * leftovers)
+                        else:
+                            # Popyt mniejszy niż owoce z magazynu
+                            solution.days[day_id].sold_market[j] = demand
+                            # pozostałości przeznaczone do skupu lub magazynu
+                            leftovers = solution.days[day_id].harvested[j]
+                            solution.days[day_id].sold_wholesale[j] = int(percent_to_wholesale * leftovers) + \
+                                                                 solution.days[day_id - 1].warehouse[j] - demand
 
-                # Jeśli część owoców przeznaczona do magazynu zmieści się w nim to możemy je tam wsadzić.
-                # W innym wypadku również trafiają one do skupu.
-                if leftovers - int(percent_to_wholesale * leftovers) + sum(solution.days[i].warehouse) <= self.warehouse_capacity:
-                    solution.days[i].warehouse[j] = leftovers - int(percent_to_wholesale * leftovers)
-                else:
-                    solution.days[i].sold_wholesale[j] += leftovers - int(percent_to_wholesale * leftovers)
+                    # Jeśli część owoców przeznaczona do magazynu zmieści się w nim to możemy je tam wsadzić.
+                    # W innym wypadku również trafiają one do skupu.
+                    if leftovers - int(percent_to_wholesale * leftovers) + sum(
+                            solution.days[day_id].warehouse) <= self.warehouse_capacity:
+                        solution.days[day_id].warehouse[j] = leftovers - int(percent_to_wholesale * leftovers)
+                    else:
+                        solution.days[day_id].sold_wholesale[j] += leftovers - int(percent_to_wholesale * leftovers)
+                day_id += 1
+
         return solution
 
     def create_initial_population(self):
@@ -176,13 +194,44 @@ class Orchard:
         fruit_types_count = len(self.fruit_types)
         solutions = []
 
-        max_har_per_type = self.max_daily_harvest // fruit_types_count
-        harvest_per_type = [max_har_per_type] * fruit_types_count
+        har_per_type1 = self.max_daily_harvest // fruit_types_count
+        har_per_type2 = int(0.9 * self.max_daily_harvest) // fruit_types_count
+        har_per_type3 = int(0.7 * self.max_daily_harvest) // fruit_types_count
+        har_per_type4 = int(0.5 * self.max_daily_harvest) // fruit_types_count
+
+        all_strategies = []
+
+        harvest_strategies1 = []
+        harvest_per_type = [har_per_type1] * fruit_types_count
+        harvest_strategies1.append([7, harvest_per_type])
+        harvest_per_type = [har_per_type2] * fruit_types_count
+        harvest_strategies1.append(([7, harvest_per_type]))
+        harvest_per_type = [har_per_type3] * fruit_types_count
+        harvest_strategies1.append(([7, harvest_per_type]))
+        harvest_per_type = [har_per_type4] * fruit_types_count
+        harvest_strategies1.append(([9, harvest_per_type]))
+        all_strategies.append(harvest_strategies1)
+
+        harvest_strategies2 = []
+        harvest_per_type = [har_per_type3] * fruit_types_count
+        harvest_strategies2.append([7, harvest_per_type])
+        harvest_per_type = [har_per_type4] * fruit_types_count
+        harvest_strategies2.append(([7, harvest_per_type]))
+        harvest_per_type = [har_per_type1] * fruit_types_count
+        harvest_strategies2.append(([7, harvest_per_type]))
+        harvest_per_type = [har_per_type2] * fruit_types_count
+        harvest_strategies2.append(([9, harvest_per_type]))
+        all_strategies.append(harvest_strategies2)
 
         # Strategia polegająca na przeznaczaniu całych zbiorów do skupu
         # z założeniem, że z każdego typu zbieramy tyle samo owoców
         # (elemety w liście harvest_per_type są równe)
-        solution = self.generate_all_to_wholesale(harvest_per_type)
+        solution = self.generate_all_to_wholesale(harvest_strategies1)
+        solutions.append(deepcopy(solution))
+        solution.days = solution.days[::-1]
+        solutions.append(deepcopy(solution))
+
+        solution = self.generate_all_to_wholesale(harvest_strategies2)
         solutions.append(deepcopy(solution))
         solution.days = solution.days[::-1]
         solutions.append(deepcopy(solution))
@@ -190,35 +239,56 @@ class Orchard:
         # Strategia polegająca na zaspokajaniu popytu
         # z założeniem, że z każdego typu zbieramy tyle samo owoców
         # (elemety w liście harvest_per_type są równe)
-        solution = self.generate_satisfy_demand(harvest_per_type, 0.6)
+        solution = self.generate_satisfy_demand(harvest_strategies1, 0.6)
         solutions.append(deepcopy(solution))
-        solution = self.generate_satisfy_demand(harvest_per_type, 1)
+        solution = self.generate_satisfy_demand(harvest_strategies1, 1)
         solutions.append(deepcopy(solution))
 
-        # Edycja listy harvest_per_type w taki sposób, że owoców
+        solution = self.generate_satisfy_demand(harvest_strategies2, 0.6)
+        solutions.append(deepcopy(solution))
+        solution = self.generate_satisfy_demand(harvest_strategies2, 1)
+        solutions.append(deepcopy(solution))
+
+        # Edycja listy strategii zbiorów w taki sposób, że owoców
         # pierwszego typu zbieramy najwięcej a każdych następnych
         # coraz mniej.
-        for i in range(fruit_types_count):
-            i_end = fruit_types_count-1-i
-            if i < i_end:
-                multiplier = (fruit_types_count-1-i)/fruit_types_count
-                harvest_per_type[i] += int(harvest_per_type[i_end]*multiplier)
-                harvest_per_type[-i-1] -= int(harvest_per_type[i_end]*multiplier)
-            else:
-                break
+        for i in range(len(all_strategies)):
+            # Pętla po listach ze strategiami (elementy z all_strategies)
+            for strat_id in range(len(all_strategies[i])):
+                # Pętla po danych strategiach w danej liście ze strategiami
+                # (elementy na przykład z harvest_strategies1)
+                for fruit_id in range(len(all_strategies[i][strat_id][1])):
+                    # Pętla po zbiorach danego typu owocu w danej strategii
+                    i_end = fruit_types_count-1-fruit_id
+                    if fruit_id < i_end:
+                        multiplier = (fruit_types_count-1-fruit_id)/fruit_types_count
+                        all_strategies[i][strat_id][1][fruit_id] += int(all_strategies[i][strat_id][1][i_end]*multiplier)
+                        all_strategies[i][strat_id][1][-fruit_id-1] -= int(all_strategies[i][strat_id][1][i_end]*multiplier)
+                    else:
+                        break
 
         # Strategia polegająca na przeznaczaniu całych zbiorów do skupu
         # ze zmienionym parametrem harvest_per_type
-        solution = self.generate_all_to_wholesale(harvest_per_type)
+        solution = self.generate_all_to_wholesale(harvest_strategies1)
+        solutions.append(deepcopy(solution))
+        solution.days = solution.days[::-1]
+        solutions.append(deepcopy(solution))
+
+        solution = self.generate_all_to_wholesale(harvest_strategies2)
         solutions.append(deepcopy(solution))
         solution.days = solution.days[::-1]
         solutions.append(deepcopy(solution))
 
         # Strategia polegająca na zaspokajaniu popytu
         # ze zmienionym parametrem harvest_per_type
-        solution = self.generate_satisfy_demand(harvest_per_type, 0.6)
+        solution = self.generate_satisfy_demand(harvest_strategies1, 0.6)
         solutions.append(deepcopy(solution))
-        solution = self.generate_satisfy_demand(harvest_per_type, 1)
+        solution = self.generate_satisfy_demand(harvest_strategies1, 1)
+        solutions.append(deepcopy(solution))
+
+        solution = self.generate_satisfy_demand(harvest_strategies2, 0.6)
+        solutions.append(deepcopy(solution))
+        solution = self.generate_satisfy_demand(harvest_strategies2, 1)
         solutions.append(deepcopy(solution))
 
         result = []
@@ -269,9 +339,5 @@ class Orchard:
 
         for fruit in self.fruit_types:
             profit -= fruit.planting_cost
-
-        # Funkcja zwraca zysk z wartością ujemną. Dzięki temu
-        # problem staje się problemem minimalizacji funkcji celu.
-        profit = -profit
 
         return profit

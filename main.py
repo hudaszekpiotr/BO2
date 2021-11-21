@@ -68,9 +68,16 @@ def main():
     orchard = Orchard([wisnie, jablka, gruszki, sliwki], employee_cost, warehouse_cost, 100, 40)
 
     initial_population = orchard.create_initial_population()
+
+    txt_to_write = ""
     for el in initial_population:
+        txt_to_write += str(el[1])
+        txt_to_write += "\n"
+        txt_to_write += str(el[0])
+        txt_to_write += "\n\n"
         print(el[1])
-        print(el[0])
-        print("\n\n")
+
+    with open("rozwiazania.txt", "w") as f:
+        f.write(txt_to_write)
 
 main()
