@@ -79,8 +79,10 @@ def main():
     #print(len(initial_population[2]))
 
 
-    sol, profit = orchard.find_solution(T_start=1000, T_stop=20, iterations_in_temp=20, epsilon=2, iterations_epsilon=10, alpha = 0.99, neighbour_type = 1, initial_sol = 2)
+    sol, profit, (num_draws, num_ok_draws) = orchard.find_solution(T_start=1000, T_stop=20, iterations_in_temp=20, epsilon=2, iterations_epsilon=10, alpha = 0.99, neighbour_type = 1, initial_sol = 2)
     print(sol, profit)
+    print("ile procent losowanych rozwiązań spełnia ograniczenia:")
+    print(num_ok_draws/num_draws*100)
 
 
 main()
