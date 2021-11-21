@@ -28,6 +28,8 @@ class Orchard:
         self.warehouse_cost = warehouse_cost
         self.max_daily_harvest = max_daily_harvest
         self.warehouse_capacity = warehouse_capacity
+        self.num_draws = 0
+        self.num_ok_draws = 0
 
     #losuje dopuszcalnego sąsiada initial_solution
     def draw_solution(self, initial_solution, neighbour_type):
@@ -117,7 +119,9 @@ class Orchard:
         #prubuje zznalezc sasiada jesli w ciagu 100 losowan nie znajdzie akceptowalnego rzuca wyjątek
         for _ in range(100):
             sol = neighbour(initial_solution)
+            self.num_draws += 1
             if self.check_if_sol_acceptable(sol):
+                self.num_ok_draws += 1
                 return sol
 
         raise Exception("error nie znaleziono otoczenia")
@@ -128,16 +132,18 @@ class Orchard:
         print(solution)
         best_solution = solution
         best_profit = self.calculate_objective_fun(solution)
-        T = T_start
-        sol_fun_list = []
+        T = T_start                         #Temperatura
+        sol_fun_list = []                   #lista długości iterations_epsilon ostatnich rozw (potrzebna do 2 kryt stopu)
+        self.num_draws = 0
+        self.num_ok_draws = 0
 
-        while T > T_stop:
+        while T > T_stop:               #1 kryterium stopu
             print(best_profit)
             for j in range(iterations_in_temp):
-                candidate_sol = self.draw_solution(solution, neighbour_type)
-                candidate_sol_fun = self.calculate_objective_fun(candidate_sol)
-                delta = candidate_sol_fun - self.calculate_objective_fun(solution)
-                if delta >= 0:
+                candidate_sol = self.draw_solution(solution, neighbour_type)        #losowanie sąsiada z otoczenia
+                candidate_sol_fun = self.calculate_objective_fun(candidate_sol)     #wyznaczenie fun celu dla wylosowanego
+                delta = candidate_sol_fun - self.calculate_objective_fun(solution)  #zmiana wart funkcji celu pomiędzy starym a nowym rozw
+                if delta >= 0:      #polepszenie rozwiazania
                     solution = candidate_sol
                     if candidate_sol_fun > best_profit:
                         best_solution = solution
@@ -145,8 +151,8 @@ class Orchard:
                 else:
                     drawn_num = np.random.rand()
                     if drawn_num < math.exp(-delta/T):
-                        solution = candidate_sol
-            T = alpha * T
+                        solution = candidate_sol    #przyjęcie jako gorszego rozwiązania jako aktualne
+            T = alpha * T       #liniowa zmiana tempertury
             while len(sol_fun_list) > iterations_epsilon - 1:
                 sol_fun_list.pop(0)
             sol_fun_list.append(self.calculate_objective_fun(solution))
@@ -155,7 +161,7 @@ class Orchard:
                 print("kryt stopu 2")
                 return best_solution, best_profit
         print("kryt stopu 1")
-        return best_solution, best_profit
+        return best_solution, best_profit, (self.num_draws, self.num_ok_draws)
 
     def generate_all_to_wholesale(self, harvest_strategies: List[List]):
         """
