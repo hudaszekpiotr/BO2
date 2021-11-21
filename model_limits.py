@@ -160,14 +160,14 @@ def check_if_today_amount_correct(solution: Solution) -> bool:
         if i > 0:
             prev_warehouse = sum(solution.days[i - 1].warehouse)
             if today_sold + today_warehouse != harvest + prev_warehouse:
-                print(f"day {i}")
-                print(today_sold, today_warehouse, harvest, prev_warehouse)
+                #print(f"day {i}")
+                #print(today_sold, today_warehouse, harvest, prev_warehouse)
                 result = False
                 break
         else:
             if today_sold + today_warehouse != harvest:
-                print(f"day {i}")
-                print(today_sold, today_warehouse, harvest)
+                #print(f"day {i}")
+                #print(today_sold, today_warehouse, harvest)
                 result = False
                 break
     return result

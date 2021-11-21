@@ -23,10 +23,10 @@ def main():
         if k <= 100:
             return 1
 
-    gruszki = FruitTypeInfo("gruszki", 742, [0]*30, [0]*30, [2]*10+[4]*20, 10, multiplier1)
-    jablka = FruitTypeInfo("jabłka", 535, [0]*30, [0]*30, [5]*10+[8]*10+[3]*10, 12, multiplier2)
-    sliwki = FruitTypeInfo("sliwki", 800, [0]*30, [0]*30, [2]*30, 12, multiplier2)
-    wisnie = FruitTypeInfo("wisnie", 1000, [0]*30, [0]*30, [3]*30, 12, multiplier2)
+    gruszki = FruitTypeInfo("gruszki", 742, [10]*30, [3]*30, [2]*10+[4]*20, 10, multiplier1)
+    jablka = FruitTypeInfo("jabłka", 535, [10]*30, [3]*30, [5]*10+[8]*10+[3]*10, 12, multiplier2)
+    sliwki = FruitTypeInfo("sliwki", 800, [10]*30, [3]*30, [2]*30, 12, multiplier2)
+    wisnie = FruitTypeInfo("wisnie", 1000, [10]*30, [3]*30, [3]*30, 12, multiplier2)
 
     def employee_cost(kilograms):
         if 0 <= kilograms <= 10:
@@ -56,14 +56,17 @@ def main():
 
     orchard = Orchard([wisnie, jablka, gruszki, sliwki], employee_cost, warehouse_cost, 100, 40)
 
-    initial_population = orchard.create_initial_population()
-    for el in initial_population:
-        print(el[1])
-        print(el[0])
-        print("\n\n")
+    #initial_population = orchard.create_initial_population()
+    # for el in initial_population:
+    #     print(el[1])
+    #     print(el[0])
+    #     print("\n\n")
+    #
+    # for el in initial_population:
+    #     print(el[1])
+    # print(len(initial_population))
 
-    for el in initial_population:
-        print(el[1])
-    print(len(initial_population))
+    sol, profit = orchard.find_solution(T_start=1000, T_stop=20, iterations_in_temp=20, epsilon=2, iterations_epsilon=10, alpha = 0.99, neighbour_type = 1, initial_sol = 2)
+    print(sol, profit)
 
 main()
