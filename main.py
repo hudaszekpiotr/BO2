@@ -23,9 +23,21 @@ def main():
         if k <= 100:
             return 1
 
+    gruszki = FruitTypeInfo(name="gruszki", quantity=742, planting_cost=0, base_price=[20]*30,
+                            wholesale_price=[3]*30, demand=[2]*10+[4]*20, min_market_sold=10,
+                            multiplier=multiplier1)
 
-    gruszki = FruitTypeInfo("gruszki", 100, [0]*30, [0]*30, [2]*30, 10, multiplier1)
-    jablka = FruitTypeInfo("jabłka", 100, [0]*30, [0]*30, [2]*30, 12, multiplier2)
+    jablka = FruitTypeInfo(name="jabłka", quantity=535, planting_cost=0, base_price=[20]*30,
+                            wholesale_price=[3] * 30, demand=[5]*10+[8]*10+[3]*10, min_market_sold=12,
+                            multiplier=multiplier1)
+
+    sliwki = FruitTypeInfo(name="sliwki", quantity=800, planting_cost=0, base_price=[20]*30,
+                           wholesale_price=[4]*30, demand=[10]*30, min_market_sold=12,
+                           multiplier=multiplier2)
+
+    wisnie = FruitTypeInfo(name="wisnie", quantity=1000, planting_cost=0, base_price=[20]*30,
+                           wholesale_price=[5]*30, demand=[10]*30, min_market_sold=20,
+                           multiplier=multiplier2)
 
     def employee_cost(kilograms):
         if 0 <= kilograms <= 10:
@@ -53,7 +65,30 @@ def main():
             cost = 30
         return cost
 
-    orchard = Orchard([jablka, gruszki], employee_cost, warehouse_cost, 100, 40)
+    orchard = Orchard([wisnie, jablka, gruszki, sliwki], employee_cost, warehouse_cost, 100, 40)
 
+    initial_population = orchard.create_initial_population()
+
+    txt_to_write = ""
+    for el in initial_population:
+        txt_to_write += str(el[1])
+        txt_to_write += "\n"
+        txt_to_write += str(el[0])
+        txt_to_write += "\n\n"
+        print(el[1])
+
+
+    with open("rozwiazania.txt", "w") as f:
+
+        f.write(txt_to_write)
+    sol, profit, (num_draws, num_ok_draws) = orchard.find_solution(T_start=1000, T_stop=20, iterations_in_temp=20, epsilon=2, iterations_epsilon=10, alpha = 0.99, neighbour_type = 1, initial_sol = 2)
+    print(sol, profit)
+    print("ile procent losowanych rozwiązań spełnia ograniczenia:")
+    print(num_ok_draws/num_draws*100)
+
+
+    sol, profit = orchard.find_solution(T_start=1000, T_stop=20, iterations_in_temp=20,
+                                        epsilon=2, iterations_epsilon=10, alpha=0.99, neighbour_type=1, initial_sol=3)
+    print(sol, profit)
 
 main()
