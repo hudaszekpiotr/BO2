@@ -397,8 +397,6 @@ class Orchard:
         for fruit in self.fruit_types:
             profit -= fruit.planting_cost
 
-        # Funkcja zwraca zysk z wartością ujemną. Dzięki temu
-        # problem staje się problemem minimalizacji funkcji celu.
-        profit = -profit
+
 
         return profit
