@@ -80,11 +80,23 @@ def main():
     with open("rozwiazania.txt", "w") as f:
         f.write(txt_to_write)
 
-    sol, profit, (num_draws, num_ok_draws) = orchard.find_solution(T_start=5000, T_stop=1, iterations_in_temp=100,
+    sol, profit, (num_draws, num_ok_draws), profit_list = orchard.find_solution(T_start=5000, T_stop=1, iterations_in_temp=100,
                                                                    epsilon=2, iterations_epsilon=10, alpha=0.99,
                                                                    neighbour_type=1, initial_sol=10)
     print(sol, profit)
     print("ile procent losowanych rozwiązań spełnia ograniczenia:")
     print(num_ok_draws/num_draws*100)
+
+    profit_lists = []
+    for init_pop in range(11):
+        sol, profit, (num_draws, num_ok_draws), profit_list = orchard.find_solution(T_start=500, T_stop=1,
+                                                                iterations_in_temp=10 ,
+                                                                epsilon=2, iterations_epsilon=10,
+                                                                alpha=0.99,
+                                                                neighbour_type=1, initial_sol=init_pop)
+        profit_lists.append(profit_list)
+
+
+    return profit_lists
 
 main()

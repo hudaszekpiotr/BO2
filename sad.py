@@ -136,6 +136,7 @@ class Orchard:
         sol_fun_list = []                   #lista długości iterations_epsilon ostatnich rozw (potrzebna do 2 kryt stopu)
         self.num_draws = 0
         self.num_ok_draws = 0
+        profit_list = []
 
         while T > T_stop:               #1 kryterium stopu
             print(f"best profit: {best_profit} | temperature: {T}")
@@ -145,6 +146,7 @@ class Orchard:
                 delta = candidate_sol_fun - self.calculate_objective_fun(solution)  #zmiana wart funkcji celu pomiędzy starym a nowym rozw
                 if delta >= 0:      #polepszenie rozwiazania
                     solution = candidate_sol
+                    profit_list.append(candidate_sol_fun)
                     if candidate_sol_fun > best_profit:
                         best_solution = solution
                         best_profit = candidate_sol_fun
@@ -159,9 +161,9 @@ class Orchard:
 
             if len(sol_fun_list) == iterations_epsilon and max(sol_fun_list)-min(sol_fun_list) <= epsilon:
                 print("kryt stopu 2")
-                return best_solution, best_profit
+                return best_solution, best_profit, profit_list
         print("kryt stopu 1")
-        return best_solution, best_profit, (self.num_draws, self.num_ok_draws)
+        return best_solution, best_profit, (self.num_draws, self.num_ok_draws), profit_list
 
     def generate_all_to_wholesale(self, harvest_strategies: List[List]):
         """
