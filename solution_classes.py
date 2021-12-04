@@ -14,12 +14,12 @@ class DaySolution:
 
 # postać rozwiązania aby dostać ile owoców sprzedanych 8 dnia typu 2 należy solution.days[7].sold[1]
 class Solution:
-    def __init__(self, fruit_types: int):
+    def __init__(self, fruit_types: int, num_days):
         """
         :param fruit_types: ilość typów owoców
         """
         self.days = []
-        for _ in range(30):
+        for _ in range(num_days):
             d = DaySolution(fruit_types)
             self.days.append(d)
 
