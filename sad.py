@@ -31,34 +31,34 @@ class Orchard:
         self.num_draws = 0
         self.num_ok_draws = 0
 
-    #losuje dopuszcalnego sąsiada initial_solution
-    def draw_solution(self, initial_solution, neighbour_type):
-
-        #funkcja do użycia po zmianie rozwiązania w jednym dniu jednego typu owoców
-        #po zmianie stan magazynowy się zmienia co wpływa na sprzedaż następnego dnia
-        #UWAGA nie działa jesli zminimy rozwiązanie dla więcej niz jednego dnia lub typu
-        def update_warehouse(prev_solution, solution, day, type):
-            if day != 0 and day != 29:
-                solution.days[day].warehouse[type] = solution.days[day - 1].warehouse[type] + \
+    #funkcja do użycia po zmianie rozwiązania w jednym dniu jednego typu owoców
+    #po zmianie stan magazynowy się zmienia co wpływa na sprzedaż następnego dnia
+    #UWAGA nie działa jesli zminimy rozwiązanie dla więcej niz jednego dnia lub typu
+    def update_warehouse(self, prev_solution, solution, day, type):
+        if day != 0 and day != 29:
+            solution.days[day].warehouse[type] = solution.days[day - 1].warehouse[type] + \
                                                      solution.days[day].harvested[type] - \
                                                      solution.days[day].sold_market[type] - \
                                                      solution.days[day].sold_wholesale[type]
 
-                delta = solution.days[day].warehouse[type] - prev_solution.days[day].warehouse[type]
-                if delta > 0:
-                    if solution.days[day + 1].sold_market[type] + delta <= self.fruit_types[type].demand[day + 1]:
-                        solution.days[day + 1].sold_market[type] += delta
-                    else:
-                        delta_wholesale = solution.days[day + 1].sold_market[type] + delta - self.fruit_types[type].demand[day + 1]
-                        solution.days[day + 1].sold_wholesale[type] += delta_wholesale
-                        solution.days[day + 1].sold_market[type] = self.fruit_types[type].demand[day + 1]
+            delta = solution.days[day].warehouse[type] - prev_solution.days[day].warehouse[type]
+            if delta > 0:
+                if solution.days[day + 1].sold_market[type] + delta <= self.fruit_types[type].demand[day + 1]:
+                    solution.days[day + 1].sold_market[type] += delta
                 else:
-                    if solution.days[day + 1].sold_wholesale[type] + delta >= 0:
-                        solution.days[day + 1].sold_wholesale[type] += delta
-                    else:
-                        delta += solution.days[day + 1].sold_wholesale[type]
-                        solution.days[day + 1].sold_wholesale[type] = 0
-                        solution.days[day + 1].sold_market[type] += delta
+                    delta_wholesale = solution.days[day + 1].sold_market[type] + delta - self.fruit_types[type].demand[day + 1]
+                    solution.days[day + 1].sold_wholesale[type] += delta_wholesale
+                    solution.days[day + 1].sold_market[type] = self.fruit_types[type].demand[day + 1]
+            else:
+                if solution.days[day + 1].sold_wholesale[type] + delta >= 0:
+                    solution.days[day + 1].sold_wholesale[type] += delta
+                else:
+                    delta += solution.days[day + 1].sold_wholesale[type]
+                    solution.days[day + 1].sold_wholesale[type] = 0
+                    solution.days[day + 1].sold_market[type] += delta
+
+    #losuje dopuszcalnego sąsiada initial_solution
+    def draw_solution(self, initial_solution, neighbour_type):
 
         #UWAGA nie działa, nie uzywac, nie usuwac
         def neighbour0(org_solution):
@@ -82,7 +82,7 @@ class Orchard:
                     changed = solution.days[day].sold_wholesale[type] + random.randint(-2, 2)
                     if 0 <= changed <= solution.days[day - 1].warehouse[type] + solution.days[day].harvested[type] - solution.days[day].sold_market[type]:
                         solution.days[day].sold_wholesale[type] = changed
-                    update_warehouse(prev_solution, solution, day, type)
+                    self.update_warehouse(prev_solution, solution, day, type)
 
             return solution
 
@@ -108,7 +108,7 @@ class Orchard:
                 changed = solution.days[day].sold_wholesale[type] + random.randint(-2, 2)
                 if 0 <= changed <= solution.days[day - 1].warehouse[type] + solution.days[day].harvested[type] - solution.days[day].sold_market[type]:
                     solution.days[day].sold_wholesale[type] = changed
-            update_warehouse(prev_solution, solution, day, type)
+            self.update_warehouse(prev_solution, solution, day, type)
 
             return solution
 
@@ -125,6 +125,29 @@ class Orchard:
                 return sol
 
         raise Exception("error nie znaleziono otoczenia")
+
+    #metoda krzyżująca dwa rozwiązania sol1 i sol2
+    def crossover(self, sol1, sol2):
+        if (not self.check_if_sol_acceptable(sol1)) or (not self.check_if_sol_acceptable(sol2)):
+            raise Exception("error podano niedopuszczalne rozw. do skrzyżowania")
+
+        for _ in range(100):
+            begin = random.randint(3, 27)
+            end = random.randint(begin+1, 29)
+            part1 = deepcopy(sol1.days[0:begin])
+            part2 = deepcopy(sol2.days[begin:end])
+            part3 = deepcopy(sol1.days[end:])
+            child = Solution(len(self.fruit_types))
+            child.days = part1 + part2 + part3
+
+            for i in range(len(self.fruit_types)-1):
+                self.update_warehouse(sol2, child, begin - 1, i)
+                self.update_warehouse(sol1, child, end - 1, i)
+
+            if self.check_if_sol_acceptable(child):
+                return child
+
+        raise Exception("error nie udało się skrzyżować rozwiązań")
 
     # znajduje jak najlepsze rozwiazanie metoda Symulowanego Wyżarzania
     def find_solution(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha, neighbour_type, initial_sol):
