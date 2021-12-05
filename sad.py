@@ -14,7 +14,7 @@ import random
 # główna klasa
 class Orchard:
     def __init__(self, fruit_types: List[FruitTypeInfo], employee_cost: Callable,
-                 warehouse_cost: Callable, max_daily_harvest: int, warehouse_capacity: int):
+                 warehouse_cost: Callable, max_daily_harvest: int, warehouse_capacity: int, num_days):
         """
         :param fruit_types: lista obiektów klasy FruitTypeInfo (każdy indeks to inny typ owocu)
         :param employee_cost: funkcja zwracająca koszta zebrania
@@ -31,12 +31,13 @@ class Orchard:
         self.warehouse_capacity = warehouse_capacity
         self.num_draws = 0
         self.num_ok_draws = 0
+        self.num_days = num_days
 
     #funkcja do użycia po zmianie rozwiązania w jednym dniu jednego typu owoców
     #po zmianie stan magazynowy się zmienia co wpływa na sprzedaż następnego dnia
     #UWAGA nie działa jesli zminimy rozwiązanie dla więcej niz jednego dnia lub typu
     def update_warehouse(self, prev_solution, solution, day, type):
-        if day != 0 and day != 29:
+        if day != 0 and day != self.num_days-1:
             solution.days[day].warehouse[type] = solution.days[day - 1].warehouse[type] + \
                                                      solution.days[day].harvested[type] - \
                                                      solution.days[day].sold_market[type] - \
@@ -65,7 +66,7 @@ class Orchard:
         def neighbour0(org_solution):
             solution = deepcopy(org_solution)
             prev_solution = deepcopy(org_solution)
-            random_days = random.sample(range(0, 30), 2)
+            random_days = random.sample(range(0, self.num_days), 2)
             random_types = random.sample(range(0, len(self.fruit_types)), 1)
             #random_part_of_sol = random.randint(0, 2)
 
@@ -92,7 +93,7 @@ class Orchard:
         def neighbour1(org_solution):
             solution = deepcopy(org_solution)
             prev_solution = deepcopy(org_solution)
-            day = random.randint(0, 29)
+            day = random.randint(0, self.num_days-1)
             type = random.randint(0, len(self.fruit_types)-1)
             part_of_sol = random.randint(0, 2)
             if part_of_sol == 0:
@@ -133,12 +134,12 @@ class Orchard:
             raise Exception("error podano niedopuszczalne rozw. do skrzyżowania")
 
         for _ in range(100):
-            begin = random.randint(3, 27)
-            end = random.randint(begin+1, 29)
+            begin = random.randint(3, self.num_days-2)
+            end = random.randint(begin+1, self.num_days-1)
             part1 = deepcopy(sol1.days[0:begin])
             part2 = deepcopy(sol2.days[begin:end])
             part3 = deepcopy(sol1.days[end:])
-            child = Solution(len(self.fruit_types))
+            child = Solution(len(self.fruit_types), self.num_days)
             child.days = part1 + part2 + part3
 
             for i in range(len(self.fruit_types)-1):
@@ -275,7 +276,7 @@ class Orchard:
         for f_type in self.fruit_types:
             fruits_left[f_type.name] = f_type.quantity
 
-        solution = Solution(fruit_types_count)
+        solution = Solution(fruit_types_count, self.num_days)
 
         day_id = 0
         for strategy in harvest_strategies:
@@ -319,7 +320,7 @@ class Orchard:
         for f_type in self.fruit_types:
             fruits_left[f_type.name] = f_type.quantity
 
-        solution = Solution(fruit_types_count)
+        solution = Solution(fruit_types_count, self.num_days)
 
         # Po sprzedaży owoców na targu pewna ilość musi trafić
         # do skupu i pewna do magazynu jeśli się tam zmieści.
@@ -420,26 +421,27 @@ class Orchard:
 
         all_strategies = []
 
+        x = self.num_days//4
         harvest_strategies1 = []
         harvest_per_type = [har_per_type1] * fruit_types_count
-        harvest_strategies1.append([7, harvest_per_type])
+        harvest_strategies1.append([x, harvest_per_type])
         harvest_per_type = [har_per_type2] * fruit_types_count
-        harvest_strategies1.append(([7, harvest_per_type]))
+        harvest_strategies1.append(([x, harvest_per_type]))
         harvest_per_type = [har_per_type3] * fruit_types_count
-        harvest_strategies1.append(([7, harvest_per_type]))
+        harvest_strategies1.append(([x, harvest_per_type]))
         harvest_per_type = [har_per_type4] * fruit_types_count
-        harvest_strategies1.append(([9, harvest_per_type]))
+        harvest_strategies1.append(([self.num_days-3*x, harvest_per_type]))
         all_strategies.append(harvest_strategies1)
 
         harvest_strategies2 = []
         harvest_per_type = [har_per_type3] * fruit_types_count
-        harvest_strategies2.append([7, harvest_per_type])
+        harvest_strategies2.append([x, harvest_per_type])
         harvest_per_type = [har_per_type4] * fruit_types_count
-        harvest_strategies2.append(([7, harvest_per_type]))
+        harvest_strategies2.append(([x, harvest_per_type]))
         harvest_per_type = [har_per_type1] * fruit_types_count
-        harvest_strategies2.append(([7, harvest_per_type]))
+        harvest_strategies2.append(([x, harvest_per_type]))
         harvest_per_type = [har_per_type2] * fruit_types_count
-        harvest_strategies2.append(([9, harvest_per_type]))
+        harvest_strategies2.append(([self.num_days-3*x, harvest_per_type]))
         all_strategies.append(harvest_strategies2)
 
         # Strategia polegająca na przeznaczaniu całych zbiorów do skupu
