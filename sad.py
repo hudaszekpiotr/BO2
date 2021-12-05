@@ -9,6 +9,7 @@ from copy import deepcopy
 import random
 import math
 import numpy as np
+import random
 
 # główna klasa
 class Orchard:
@@ -127,7 +128,7 @@ class Orchard:
         raise Exception("error nie znaleziono otoczenia")
 
     #metoda krzyżująca dwa rozwiązania sol1 i sol2
-    def crossover(self, sol1, sol2):
+    def crossover(self, sol1: Solution, sol2: Solution):
         if (not self.check_if_sol_acceptable(sol1)) or (not self.check_if_sol_acceptable(sol2)):
             raise Exception("error podano niedopuszczalne rozw. do skrzyżowania")
 
@@ -185,6 +186,67 @@ class Orchard:
                 return best_solution, best_profit
         print("kryt stopu 1")
         return best_solution, best_profit, (self.num_draws, self.num_ok_draws)
+
+    def genetic_algorithm(self, max_iter_no_progress, max_iter, replacement_rate=0.5, mutation_proba=0.1):
+        solutions = self.create_initial_population()
+
+        # population to lista, w której przechowujemy rozwiązania.
+        # Rozwiązanie składa się z dwóch elementów, rozwiązania oraz
+        # wartości funkcji celu dla tego rozwiązania.
+        population = [[sol[0], self.calculate_objective_fun(sol[0])] for sol in solutions]
+        population = sorted(population, key=lambda x: x[1])
+
+        iter_with_no_progress = 0
+        iterations = 0
+        best_solution = None
+        best_cost = 0
+
+        while iter_with_no_progress <= max_iter_no_progress and iterations <= max_iter:
+            # Warunkiem jest osiągnięcie maksymalnej liczby iteracji bez poprawy
+            # lub osiągnięcie maksymalnej iteracji w ogóle.
+            iterations += 1
+
+            children_count = 0
+            children = []
+            replaced = 0
+            while replaced < replacement_rate:
+                children_count += 2
+                replaced = children_count/len(population)
+                """
+                W tym miejscu będzie wywoływana funkcja do selekcji rodziców. 
+                Funkcja do selekcji rodziców w argumencie otrzymuje listę population opisaną powyżej
+                a zwraca dwuelementową listę gdzie dwa elementy to rodzice. Póki nie
+                ma tej funkcji to ustawiłem pewnych z góry założonych rodziców w liście parents.
+                """
+                parents = [population[0][0], population[1][0]]
+                child1 = self.crossover(parents[0], parents[1])
+                child2 = self.crossover(parents[1], parents[0])
+
+                if random.uniform(0, 1) <= mutation_proba:
+                    try:
+                        child1 = self.draw_solution(child1, 1)
+                    except:
+                        pass
+                    try:
+                        child2 = self.draw_solution(child2, 1)
+                    except:
+                        pass
+
+                children.append(deepcopy(child1))
+                children.append(deepcopy(child2))
+
+            for i in range(len(children)):
+                population[i] = [deepcopy(children[i]), self.calculate_objective_fun(children[i])]
+            population = sorted(population, key=lambda x: x[1])
+
+            if population[-1][1] > best_cost:
+                best_solution = population[-1][0]
+                best_cost = population[-1][1]
+                iter_with_no_progress = 0
+            else:
+                iter_with_no_progress += 1
+
+        return best_solution, best_cost
 
     def generate_all_to_wholesale(self, harvest_strategies: List[List]):
         """
