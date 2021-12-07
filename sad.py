@@ -152,7 +152,7 @@ class Orchard:
         raise Exception("error nie udało się skrzyżować rozwiązań")
 
     # znajduje jak najlepsze rozwiazanie metoda Symulowanego Wyżarzania
-    def find_solution(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha, neighbour_type, initial_sol):
+    def simulated_annealing(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha, neighbour_type, initial_sol):
         solution = self.create_initial_population()[initial_sol][0]
         print(solution)
         best_solution = solution
@@ -188,29 +188,55 @@ class Orchard:
         print("kryt stopu 1")
         return best_solution, best_profit, (self.num_draws, self.num_ok_draws)
 
-    def genetic_algorithm(self, max_iter_no_progress, max_iter, replacement_rate=0.5, mutation_proba=0.1):
+    def genetic_algorithm(self, max_iter_no_progress, max_iter, replacement_rate=0.5, mutation_proba=0.2):
+        """
+        Metoda znajdująca rozwiązanie optymalne za pomocą algorytmu genetycznego
+
+        :param max_iter_no_progress: Maksymalna ilość iteracji bez poprawy funkcji celu
+        :param max_iter: Łączna maksymalna ilość iteracji algorytmu
+        :param replacement_rate: Procent populacji jaki jest zastępowany przez potomków
+                                w każdej iteracji algorytmu (liczba z zakresu 0-1).
+        :param mutation_proba: Prawdopodobieństwo wystąpienia mutacji u dziecka
+                               (liczba z zakresu 0-1).
+        :return: Znalezione rozwiązanie, koszt rozwiązania
+        """
+        #
         solutions = self.create_initial_population()
 
-        # population to lista, w której przechowujemy rozwiązania.
-        # Rozwiązanie składa się z dwóch elementów, rozwiązania oraz
-        # wartości funkcji celu dla tego rozwiązania.
+        # population to lista list, w której przechowujemy rozwiązania.
+        # Poszczególne elementy listy population to dwuelementowe
+        # listy o następującej postaci [rozwiązanie, funkcja celu dla rozwiązania]
         population = [[sol[0], self.calculate_objective_fun(sol[0])] for sol in solutions]
+        # sortowanie populacji po wartości funkcji celu
         population = sorted(population, key=lambda x: x[1])
 
+        # licznik iteracji bez poprawy funkcji celu
         iter_with_no_progress = 0
+        # licznik wszystkich iteracji
         iterations = 0
-        best_solution = None
-        best_cost = 0
+        # wartość funkcji celu dla najleoszego rozwiązania
+        best_cost = -np.inf
 
         while iter_with_no_progress <= max_iter_no_progress and iterations <= max_iter:
-            # Warunkiem jest osiągnięcie maksymalnej liczby iteracji bez poprawy
+            # Kryterium stopu algorytmu jest osiągnięcie maksymalnej liczby iteracji bez poprawy
             # lub osiągnięcie maksymalnej iteracji w ogóle.
             iterations += 1
 
+            # licznik dzieci utworzonych w danej iteracji
             children_count = 0
+            # lista przechowująca nowe rozwiązania (dzieci)
             children = []
+            # aktualny procent populacji, która zostanie
+            # zastąpiona przez nowych członków
             replaced = 0
+
             while replaced < replacement_rate:
+                # nowych potomków tworzymy tak długo dopóki procent
+                # populacji jaki zostanie zastąpiony przez potomków
+                # jest mniejszy niż replacement_rate
+
+                # w każdej iteracji tworzę 2 nowych potomków
+                # więc aktualizuję children_count i replaced
                 children_count += 2
                 replaced = children_count/len(population)
                 """
@@ -223,31 +249,41 @@ class Orchard:
                 child1 = self.crossover(parents[0], parents[1])
                 child2 = self.crossover(parents[1], parents[0])
 
+                # następnie losujemy liczbę z zakresu 0-1 i sprawdzamy
+                # czy mamy dokonać mutacji jednego oraz drugiego dziecka.
                 if random.uniform(0, 1) <= mutation_proba:
                     try:
                         child1 = self.draw_solution(child1, 1)
                     except:
                         pass
+                if random.uniform(0, 1) <= mutation_proba:
                     try:
                         child2 = self.draw_solution(child2, 1)
                     except:
                         pass
 
+                # dołączenie dzieci do listy children
                 children.append(deepcopy(child1))
                 children.append(deepcopy(child2))
 
             for i in range(len(children)):
+                # podmienienie najsłabszych elementów z populacji przez
+                # nowych potomków
                 population[i] = [deepcopy(children[i]), self.calculate_objective_fun(children[i])]
+            # ponowne sortowanie populacji zawierającej nowych członków
             population = sorted(population, key=lambda x: x[1])
 
             if population[-1][1] > best_cost:
-                best_solution = population[-1][0]
+                # jeślli funkcja celu najlepszego członka obecnej populacji jest
+                # lepsza niż dotychczasowo najlepsza to podmień najlepszy koszt
+                # oraz zresetuj licznik iteracji bez poprawy
                 best_cost = population[-1][1]
                 iter_with_no_progress = 0
             else:
+                # w innym przypadku zwiększamy licznik iteracji bez poprawy
                 iter_with_no_progress += 1
 
-        return best_solution, best_cost
+        return population[-1][0], population[-1][1]
 
     def generate_all_to_wholesale(self, harvest_strategies: List[List]):
         """

@@ -81,9 +81,9 @@ def main():
     with open("rozwiazania.txt", "w") as f:
         f.write(txt_to_write)
 
-    sol, profit, (num_draws, num_ok_draws) = orchard.find_solution(T_start=5000, T_stop=100, iterations_in_temp=100,
-                                                                   epsilon=4, iterations_epsilon=10, alpha=0.99,
-                                                                   neighbour_type=1, initial_sol=10)
+    sol, profit, (num_draws, num_ok_draws) = orchard.simulated_annealing(T_start=5000, T_stop=100, iterations_in_temp=100,
+                                                                         epsilon=4, iterations_epsilon=10, alpha=0.99,
+                                                                         neighbour_type=1, initial_sol=10)
     print(sol, profit)
     print("ile procent losowanych rozwiązań spełnia ograniczenia:")
     print(num_ok_draws/num_draws*100)
