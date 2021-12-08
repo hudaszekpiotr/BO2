@@ -192,7 +192,7 @@ class Orchard:
                         best_profit = candidate_sol_fun
                 else:
                     drawn_num = np.random.rand()
-                    if drawn_num < math.exp(-delta/T):
+                    if drawn_num < math.exp(delta/T):
                         solution = candidate_sol    #przyjęcie jako gorszego rozwiązania jako aktualne
             T = alpha * T       #liniowa zmiana tempertury
             while len(sol_fun_list) > iterations_epsilon - 1:
