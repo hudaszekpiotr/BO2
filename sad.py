@@ -142,7 +142,7 @@ class Orchard:
             else:
                 parents.append(population[candidate2])
 
-        print(parents)
+        print(parents) 
         return parents
 
     #metoda krzyżująca dwa rozwiązania sol1 i sol2
@@ -165,8 +165,8 @@ class Orchard:
 
             if self.check_if_sol_acceptable(child):
                 return child
-
-        raise Exception("error nie udało się skrzyżować rozwiązań")
+        return None
+        #raise Exception("error nie udało się skrzyżować rozwiązań")
 
     # znajduje jak najlepsze rozwiazanie metoda Symulowanego Wyżarzania
     def simulated_annealing(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha, neighbour_type, initial_sol):
