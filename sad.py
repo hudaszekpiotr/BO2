@@ -268,6 +268,11 @@ class Orchard:
                 child1 = self.crossover(parents[0], parents[1])
                 child2 = self.crossover(parents[1], parents[0])
 
+                if child1 is None or child2 is None:
+                    children_count -= 2
+                    replaced = children_count / len(population)
+                    continue
+
                 # następnie losujemy liczbę z zakresu 0-1 i sprawdzamy
                 # czy mamy dokonać mutacji jednego oraz drugiego dziecka.
                 if random.uniform(0, 1) <= mutation_proba:
