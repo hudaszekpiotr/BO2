@@ -507,12 +507,12 @@ class Orchard:
         # Strategia polegająca na przeznaczaniu całych zbiorów do skupu
         # z założeniem, że z każdego typu zbieramy tyle samo owoców
         # (elemety w liście harvest_per_type są równe)
-        solution = self.generate_all_to_wholesale(harvest_strategies1)
+        solution = self.generate_all_to_wholesale(all_strategies[0])
         solutions.append(deepcopy(solution))
         solution.days = solution.days[::-1]
         solutions.append(deepcopy(solution))
 
-        solution = self.generate_all_to_wholesale(harvest_strategies2)
+        solution = self.generate_all_to_wholesale(all_strategies[1])
         solutions.append(deepcopy(solution))
         solution.days = solution.days[::-1]
         solutions.append(deepcopy(solution))
@@ -520,16 +520,17 @@ class Orchard:
         # Strategia polegająca na zaspokajaniu popytu
         # z założeniem, że z każdego typu zbieramy tyle samo owoców
         # (elemety w liście harvest_per_type są równe)
-        solution = self.generate_satisfy_demand(harvest_strategies1, 0.6)
+        solution = self.generate_satisfy_demand(all_strategies[0], 0.6)
         solutions.append(deepcopy(solution))
-        solution = self.generate_satisfy_demand(harvest_strategies1, 1)
-        solutions.append(deepcopy(solution))
-
-        solution = self.generate_satisfy_demand(harvest_strategies2, 0.6)
-        solutions.append(deepcopy(solution))
-        solution = self.generate_satisfy_demand(harvest_strategies2, 1)
+        solution = self.generate_satisfy_demand(all_strategies[0], 1)
         solutions.append(deepcopy(solution))
 
+        solution = self.generate_satisfy_demand(all_strategies[1], 0.6)
+        solutions.append(deepcopy(solution))
+        solution = self.generate_satisfy_demand(all_strategies[1], 1)
+        solutions.append(deepcopy(solution))
+
+        all_strategies2 = deepcopy(all_strategies)
         # Edycja listy strategii zbiorów w taki sposób, że owoców
         # pierwszego typu zbieramy najwięcej a każdych następnych
         # coraz mniej.
@@ -548,28 +549,69 @@ class Orchard:
                     else:
                         break
 
+        for i in range(len(all_strategies2)):
+            # Pętla po listach ze strategiami (elementy z all_strategies)
+            for strat_id in range(len(all_strategies2[i])):
+                # Pętla po danych strategiach w danej liście ze strategiami
+                # (elementy na przykład z harvest_strategies1)
+                for fruit_id in range(0,len(all_strategies2[i][strat_id][1]),2):
+                    # Pętla po zbiorach danego typu owocu w danej strategii
+                    if fruit_id <= len(all_strategies2[i][strat_id][1])-2:
+                        percent = random.uniform(0.85, 1.15)
+                        defaul_fruits = all_strategies2[i][strat_id][1][fruit_id]
+                        fruit_delta = defaul_fruits-int(defaul_fruits * percent)
+                        all_strategies2[i][strat_id][1][fruit_id] -= fruit_delta
+                        all_strategies2[i][strat_id][1][fruit_id+1] += fruit_delta
+
+
         # Strategia polegająca na przeznaczaniu całych zbiorów do skupu
         # ze zmienionym parametrem harvest_per_type
-        solution = self.generate_all_to_wholesale(harvest_strategies1)
+        solution = self.generate_all_to_wholesale(all_strategies[0])
         solutions.append(deepcopy(solution))
         solution.days = solution.days[::-1]
         solutions.append(deepcopy(solution))
 
-        solution = self.generate_all_to_wholesale(harvest_strategies2)
+        solution = self.generate_all_to_wholesale(all_strategies[1])
         solutions.append(deepcopy(solution))
         solution.days = solution.days[::-1]
         solutions.append(deepcopy(solution))
 
         # Strategia polegająca na zaspokajaniu popytu
         # ze zmienionym parametrem harvest_per_type
-        solution = self.generate_satisfy_demand(harvest_strategies1, 0.6)
+        solution = self.generate_satisfy_demand(all_strategies[0], 0.6)
         solutions.append(deepcopy(solution))
-        solution = self.generate_satisfy_demand(harvest_strategies1, 1)
+        solution = self.generate_satisfy_demand(all_strategies[0], 1)
         solutions.append(deepcopy(solution))
 
-        solution = self.generate_satisfy_demand(harvest_strategies2, 0.6)
+        solution = self.generate_satisfy_demand(all_strategies[1], 0.6)
         solutions.append(deepcopy(solution))
-        solution = self.generate_satisfy_demand(harvest_strategies2, 1)
+        solution = self.generate_satisfy_demand(all_strategies[1], 1)
+        solutions.append(deepcopy(solution))
+
+
+
+        # Strategia polegająca na przeznaczaniu całych zbiorów do skupu
+        # ze zmienionym parametrem harvest_per_type
+        solution = self.generate_all_to_wholesale(all_strategies2[0])
+        solutions.append(deepcopy(solution))
+        solution.days = solution.days[::-1]
+        solutions.append(deepcopy(solution))
+
+        solution = self.generate_all_to_wholesale(all_strategies2[1])
+        solutions.append(deepcopy(solution))
+        solution.days = solution.days[::-1]
+        solutions.append(deepcopy(solution))
+
+        # Strategia polegająca na zaspokajaniu popytu
+        # ze zmienionym parametrem harvest_per_type
+        solution = self.generate_satisfy_demand(all_strategies2[0], 0.6)
+        solutions.append(deepcopy(solution))
+        solution = self.generate_satisfy_demand(all_strategies2[0], 1)
+        solutions.append(deepcopy(solution))
+
+        solution = self.generate_satisfy_demand(all_strategies2[1], 0.6)
+        solutions.append(deepcopy(solution))
+        solution = self.generate_satisfy_demand(all_strategies2[1], 1)
         solutions.append(deepcopy(solution))
 
         result = []
