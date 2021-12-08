@@ -128,6 +128,23 @@ class Orchard:
 
         raise Exception("error nie znaleziono otoczenia")
 
+
+    # metoda wybierająca rodziców
+    def selection(self, population):
+        parents = []
+        while len(parents) < 2:
+            candidate1 = random.randint(0, len(population)-1)
+            candidate2 = random.randint(0, len(population)-1)
+            while candidate1 == candidate2:
+                candidate2 = random.randint(0, len(population)-1)
+            if population[candidate1][1] > population[candidate2][1]:
+                parents.append(population[candidate1])
+            else:
+                parents.append(population[candidate2])
+
+        print(parents)
+        return parents
+
     #metoda krzyżująca dwa rozwiązania sol1 i sol2
     def crossover(self, sol1: Solution, sol2: Solution):
         if (not self.check_if_sol_acceptable(sol1)) or (not self.check_if_sol_acceptable(sol2)):
@@ -245,7 +262,9 @@ class Orchard:
                 a zwraca dwuelementową listę gdzie dwa elementy to rodzice. Póki nie
                 ma tej funkcji to ustawiłem pewnych z góry założonych rodziców w liście parents.
                 """
-                parents = [population[0][0], population[1][0]]
+                parents = self.selection(population)
+                parents = [parents[i][0] for i in range(len(parents))]
+                
                 child1 = self.crossover(parents[0], parents[1])
                 child2 = self.crossover(parents[1], parents[0])
 
