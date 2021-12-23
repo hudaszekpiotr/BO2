@@ -1,6 +1,8 @@
 # BO2
 Projekt z BO2 model zbierania owoców w sadzie
 
+Do poprawnego działania programu konieczne jest zainstalowanie pakietów z pliku ```requirements.txt```
+
 ## Instrukcja obsługi interfejsu
 Aby móc korzystać z terminala do obsługi programu należy w terminalu przejść folderu zawierającego m.in. foldery ```project_app``` oraz ```wyniki```.
 
@@ -30,4 +32,4 @@ Znaczenie poszczególnych parametrów:
 - ```--verbose``` parametr opcjonalny, jego użycie skutkuje wyświetlaniem aktualnej iteracji oraz najlpeszego zysku w trakcie pracy algorytmu
 
 ## Wyniki
-Wyniki działania algorytmu są zapisywanie w folderze wyniki w pliku algorytm_genetyczny.txt lub algorytm_wyrzarzania.txt
+Wyniki działania algorytmu są zapisywanie w folderze ```wyniki``` w pliku ```algorytm_genetyczny.txt``` lub ```algorytm_wyrzarzania.txt```.
