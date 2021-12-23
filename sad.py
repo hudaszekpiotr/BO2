@@ -141,7 +141,6 @@ class Orchard:
                 parents.append(population[candidate1])
             else:
                 parents.append(population[candidate2])
-
         print(f"{parents[0][1]},{parents[1][1]}")
         return parents
 
@@ -178,6 +177,7 @@ class Orchard:
         sol_fun_list = []                   #lista długości iterations_epsilon ostatnich rozw (potrzebna do 2 kryt stopu)
         self.num_draws = 0
         self.num_ok_draws = 0
+        profit_lst = []
 
         while T > T_stop:               #1 kryterium stopu
             print(f"best profit: {best_profit} | temperature: {T}")
@@ -187,12 +187,13 @@ class Orchard:
                 delta = candidate_sol_fun - self.calculate_objective_fun(solution)  #zmiana wart funkcji celu pomiędzy starym a nowym rozw
                 if delta >= 0:      #polepszenie rozwiazania
                     solution = candidate_sol
+                    profit_lst.append(candidate_sol_fun)
                     if candidate_sol_fun > best_profit:
                         best_solution = solution
                         best_profit = candidate_sol_fun
                 else:
                     drawn_num = np.random.rand()
-                    if drawn_num < math.exp(-delta/T):
+                    if drawn_num < math.exp(delta/T):
                         solution = candidate_sol    #przyjęcie jako gorszego rozwiązania jako aktualne
             T = alpha * T       #liniowa zmiana tempertury
             while len(sol_fun_list) > iterations_epsilon - 1:
@@ -201,9 +202,9 @@ class Orchard:
 
             if len(sol_fun_list) == iterations_epsilon and max(sol_fun_list)-min(sol_fun_list) <= epsilon:
                 print("kryt stopu 2")
-                return best_solution, best_profit
+                return best_solution, best_profit, (self.num_draws, self.num_ok_draws), profit_lst
         print("kryt stopu 1")
-        return best_solution, best_profit, (self.num_draws, self.num_ok_draws)
+        return best_solution, best_profit, (self.num_draws, self.num_ok_draws), profit_lst
 
     def genetic_algorithm(self, max_iter_no_progress, max_iter, replacement_rate=0.5, mutation_proba=0.2):
         """
@@ -385,7 +386,7 @@ class Orchard:
         # Po sprzedaży owoców na targu pewna ilość musi trafić
         # do skupu i pewna do magazynu jeśli się tam zmieści.
         # percent_to_wholesale określa jaki procent tych owoców
-        # początkowo chcemy dać do skupu podczas gdy reszta trafi do magazynu.
+        # początkowo chcemy dać do skupu podczas gdy reszta trafi do mag1azynu.
         # Jeśli reszta nie zmieści się w magazynie to na koniec też przeznaczamy
         # ją do skupu.
         percent_to_wholesale = 0.7
