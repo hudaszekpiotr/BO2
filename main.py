@@ -88,7 +88,8 @@ def main():
     print("ile procent losowanych rozwiązań spełnia ograniczenia:")
     print(num_ok_draws/num_draws*100)"""
 
-    sol, profit = orchard.genetic_algorithm(max_iter_no_progress=100, max_iter=1000)
+    sol, profit = orchard.genetic_algorithm(max_iter_no_progress=400, max_iter=3000, replacement_rate=0.4,
+                                            mutation_proba=0.4)
     print(sol, profit)
 
 main()

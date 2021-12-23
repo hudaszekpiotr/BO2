@@ -142,7 +142,7 @@ class Orchard:
             else:
                 parents.append(population[candidate2])
 
-        print(parents) 
+        print(f"{parents[0][1]},{parents[1][1]}")
         return parents
 
     #metoda krzyżująca dwa rozwiązania sol1 i sol2

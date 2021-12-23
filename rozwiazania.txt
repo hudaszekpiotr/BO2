@@ -2992,183 +2992,183 @@ warehouse: [12, 0, 4, 0]
 
 True
 Day 1
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 2
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 3
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 4
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 5
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 6
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 7
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 8
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 9
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 10
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 11
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 12
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 13
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 14
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 15
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 16
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 17
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 18
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 19
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 20
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 21
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 22
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 23
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 24
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 25
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 26
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 27
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 28
-harvested: [13, 7, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 7, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 29
-harvested: [13, 0, 10, 14]
+harvested: [13, 3, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 0, 10, 14]
+sold_wholesale: [13, 3, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 30
-harvested: [13, 0, 10, 14]
+harvested: [13, 0, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 0, 10, 14]
+sold_wholesale: [13, 0, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 
@@ -3179,183 +3179,183 @@ warehouse: [0, 0, 0, 0]
 
 True
 Day 1
-harvested: [13, 0, 10, 14]
+harvested: [13, 0, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 0, 10, 14]
+sold_wholesale: [13, 0, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 2
-harvested: [13, 0, 10, 14]
+harvested: [13, 3, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 0, 10, 14]
+sold_wholesale: [13, 3, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 3
-harvested: [13, 7, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 7, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 4
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 5
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 6
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 7
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 8
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 9
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [13, 11, 12, 12]
 warehouse: [0, 0, 0, 0]
 
 Day 10
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 11
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 12
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 13
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 14
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 15
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 16
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [16, 18, 14, 20]
+sold_wholesale: [19, 15, 14, 20]
 warehouse: [0, 0, 0, 0]
 
 Day 17
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 18
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 19
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 20
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 21
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 22
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 23
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [21, 23, 23, 21]
+sold_wholesale: [22, 22, 23, 21]
 warehouse: [0, 0, 0, 0]
 
 Day 24
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 25
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 26
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 27
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 28
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 29
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 30
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [25, 25, 22, 28]
+sold_wholesale: [22, 28, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 
@@ -3366,183 +3366,183 @@ warehouse: [0, 0, 0, 0]
 
 True
 Day 1
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 2
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 3
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 4
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 5
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 6
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 7
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 8
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 9
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 10
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 11
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 12
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 13
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 14
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 15
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 16
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 17
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 18
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 19
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 20
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 21
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 22
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 23
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 24
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 25
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 26
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 27
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 28
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 29
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 30
-harvested: [22, 16, 21, 23]
+harvested: [23, 17, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 16, 21, 23]
+sold_wholesale: [23, 17, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 
@@ -3553,183 +3553,183 @@ warehouse: [0, 0, 0, 0]
 
 True
 Day 1
-harvested: [22, 16, 21, 23]
+harvested: [23, 17, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 16, 21, 23]
+sold_wholesale: [23, 17, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 2
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 3
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 4
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 5
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 6
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 7
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 8
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 9
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [22, 22, 21, 23]
+sold_wholesale: [23, 21, 25, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 10
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 11
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 12
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 13
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 14
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 15
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 16
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [27, 23, 27, 23]
+sold_wholesale: [27, 23, 22, 28]
 warehouse: [0, 0, 0, 0]
 
 Day 17
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 18
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 19
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 20
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 21
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 22
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 23
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [13, 11, 10, 14]
+sold_wholesale: [12, 12, 13, 11]
 warehouse: [0, 0, 0, 0]
 
 Day 24
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 25
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 26
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 27
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 28
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 29
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 Day 30
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [0, 0, 0, 0]
-sold_wholesale: [19, 15, 18, 16]
+sold_wholesale: [19, 15, 15, 19]
 warehouse: [0, 0, 0, 0]
 
 
@@ -3740,184 +3740,184 @@ warehouse: [0, 0, 0, 0]
 
 True
 Day 1
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [13, 15, 14, 15]
-warehouse: [6, 7, 7, 7]
+sold_wholesale: [11, 17, 14, 15]
+warehouse: [5, 8, 7, 7]
 
 Day 2
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [17, 21, 21, 20]
-warehouse: [8, 8, 7, 9]
+sold_wholesale: [14, 24, 21, 20]
+warehouse: [7, 9, 7, 9]
 
 Day 3
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [19, 22, 21, 22]
-warehouse: [8, 8, 7, 9]
+sold_wholesale: [16, 25, 21, 22]
+warehouse: [7, 9, 7, 9]
 
 Day 4
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [19, 22, 21, 22]
-warehouse: [8, 8, 7, 9]
+sold_wholesale: [16, 25, 21, 22]
+warehouse: [7, 9, 7, 9]
 
 Day 5
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [19, 22, 21, 22]
-warehouse: [8, 8, 7, 9]
+sold_wholesale: [16, 25, 21, 22]
+warehouse: [7, 9, 7, 9]
 
 Day 6
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [19, 22, 21, 22]
-warehouse: [8, 8, 7, 9]
+sold_wholesale: [16, 25, 21, 22]
+warehouse: [7, 9, 7, 9]
 
 Day 7
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [19, 22, 21, 22]
-warehouse: [8, 8, 7, 9]
+sold_wholesale: [16, 25, 21, 22]
+warehouse: [7, 9, 7, 9]
 
 Day 8
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [6, 3, 1, 6]
 sold_wholesale: [16, 21, 22, 17]
 warehouse: [7, 7, 7, 7]
 
 Day 9
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [15, 20, 22, 15]
+sold_wholesale: [16, 19, 22, 15]
 warehouse: [7, 7, 7, 7]
 
 Day 10
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [15, 20, 22, 15]
+sold_wholesale: [16, 19, 22, 15]
 warehouse: [7, 7, 7, 7]
 
 Day 11
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [15, 19, 21, 15]
+sold_wholesale: [16, 18, 21, 15]
 warehouse: [7, 7, 7, 7]
 
 Day 12
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [15, 19, 21, 15]
+sold_wholesale: [16, 18, 21, 15]
 warehouse: [7, 7, 7, 7]
 
 Day 13
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [15, 19, 21, 15]
+sold_wholesale: [16, 18, 21, 15]
 warehouse: [7, 7, 7, 7]
 
 Day 14
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [15, 19, 21, 15]
+sold_wholesale: [16, 18, 21, 15]
 warehouse: [7, 7, 7, 7]
 
 Day 15
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [12, 15, 14, 15]
-warehouse: [5, 6, 5, 6]
+sold_wholesale: [14, 13, 14, 15]
+warehouse: [6, 5, 5, 6]
 
 Day 16
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [10, 14, 12, 14]
-warehouse: [5, 6, 5, 6]
+sold_wholesale: [13, 11, 12, 14]
+warehouse: [6, 5, 5, 6]
 
 Day 17
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [10, 14, 12, 14]
-warehouse: [5, 6, 5, 6]
+sold_wholesale: [13, 11, 12, 14]
+warehouse: [6, 5, 5, 6]
 
 Day 18
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [10, 14, 12, 14]
-warehouse: [5, 6, 5, 6]
+sold_wholesale: [13, 11, 12, 14]
+warehouse: [6, 5, 5, 6]
 
 Day 19
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [10, 14, 12, 14]
-warehouse: [5, 6, 5, 6]
+sold_wholesale: [13, 11, 12, 14]
+warehouse: [6, 5, 5, 6]
 
 Day 20
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [10, 14, 12, 14]
-warehouse: [5, 6, 5, 6]
+sold_wholesale: [13, 11, 12, 14]
+warehouse: [6, 5, 5, 6]
 
 Day 21
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [10, 17, 12, 14]
-warehouse: [5, 6, 5, 6]
+sold_wholesale: [13, 14, 12, 14]
+warehouse: [6, 5, 5, 6]
 
 Day 22
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [8, 12, 10, 9]
-warehouse: [4, 4, 3, 5]
+sold_wholesale: [9, 11, 11, 8]
+warehouse: [4, 4, 4, 4]
 
 Day 23
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [7, 10, 8, 9]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [7, 10, 10, 7]
+warehouse: [4, 4, 4, 3]
 
 Day 24
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [7, 10, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [7, 10, 10, 6]
+warehouse: [4, 4, 4, 3]
 
 Day 25
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [7, 10, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [7, 10, 10, 6]
+warehouse: [4, 4, 4, 3]
 
 Day 26
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [7, 10, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [7, 10, 10, 6]
+warehouse: [4, 4, 4, 3]
 
 Day 27
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [7, 10, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [7, 10, 10, 6]
+warehouse: [4, 4, 4, 3]
 
 Day 28
-harvested: [13, 7, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [7, 7, 8, 8]
-warehouse: [4, 3, 3, 4]
+sold_wholesale: [7, 10, 10, 6]
+warehouse: [4, 4, 4, 3]
 
 Day 29
-harvested: [13, 0, 10, 14]
+harvested: [13, 3, 12, 12]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [7, 2, 8, 8]
-warehouse: [4, 0, 3, 4]
+sold_wholesale: [7, 5, 10, 6]
+warehouse: [4, 1, 4, 3]
 
 Day 30
-harvested: [13, 0, 10, 14]
-sold_market: [6, 0, 2, 6]
-sold_wholesale: [7, 0, 8, 8]
-warehouse: [4, 0, 3, 4]
+harvested: [13, 0, 12, 12]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [7, 0, 10, 6]
+warehouse: [4, 0, 4, 3]
 
 
 
@@ -3927,184 +3927,184 @@ warehouse: [4, 0, 3, 4]
 
 True
 Day 1
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [10, 14, 14, 12]
-warehouse: [5, 6, 6, 6]
+sold_wholesale: [8, 16, 14, 12]
+warehouse: [4, 7, 6, 6]
 
 Day 2
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [14, 18, 19, 16]
-warehouse: [6, 8, 7, 8]
+sold_wholesale: [11, 21, 19, 16]
+warehouse: [5, 9, 7, 8]
 
 Day 3
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [14, 20, 20, 18]
-warehouse: [7, 8, 7, 8]
+sold_wholesale: [11, 23, 20, 18]
+warehouse: [6, 9, 7, 8]
 
 Day 4
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [15, 20, 20, 18]
-warehouse: [7, 8, 7, 8]
+sold_wholesale: [12, 23, 20, 18]
+warehouse: [6, 9, 7, 8]
 
 Day 5
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [15, 20, 20, 18]
-warehouse: [7, 8, 7, 8]
+sold_wholesale: [12, 23, 20, 18]
+warehouse: [6, 9, 7, 8]
 
 Day 6
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [15, 20, 20, 18]
-warehouse: [7, 8, 7, 8]
+sold_wholesale: [12, 23, 20, 18]
+warehouse: [6, 9, 7, 8]
 
 Day 7
-harvested: [25, 25, 22, 28]
+harvested: [22, 28, 22, 28]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [15, 20, 20, 18]
-warehouse: [7, 8, 7, 8]
+sold_wholesale: [12, 23, 20, 18]
+warehouse: [6, 9, 7, 8]
 
 Day 8
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [10, 5, 2, 10]
 sold_wholesale: [12, 19, 21, 13]
 warehouse: [6, 7, 7, 6]
 
 Day 9
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [11, 18, 21, 11]
+sold_wholesale: [12, 17, 21, 11]
 warehouse: [6, 7, 7, 6]
 
 Day 10
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [10, 5, 2, 10]
-sold_wholesale: [11, 18, 21, 11]
+sold_wholesale: [12, 17, 21, 11]
 warehouse: [6, 7, 7, 6]
 
 Day 11
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [11, 15, 19, 11]
+sold_wholesale: [12, 14, 19, 11]
 warehouse: [6, 7, 7, 6]
 
 Day 12
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [11, 15, 19, 11]
+sold_wholesale: [12, 14, 19, 11]
 warehouse: [6, 7, 7, 6]
 
 Day 13
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [11, 15, 19, 11]
+sold_wholesale: [12, 14, 19, 11]
 warehouse: [6, 7, 7, 6]
 
 Day 14
-harvested: [21, 23, 23, 21]
+harvested: [22, 22, 23, 21]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [11, 15, 19, 11]
+sold_wholesale: [12, 14, 19, 11]
 warehouse: [6, 7, 7, 6]
 
 Day 15
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [8, 11, 12, 11]
-warehouse: [4, 6, 5, 5]
+sold_wholesale: [10, 9, 12, 11]
+warehouse: [5, 5, 5, 5]
 
 Day 16
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [7, 11, 10, 10]
-warehouse: [3, 5, 5, 5]
+sold_wholesale: [9, 8, 10, 10]
+warehouse: [5, 4, 5, 5]
 
 Day 17
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [6, 10, 10, 10]
-warehouse: [3, 5, 5, 5]
+sold_wholesale: [9, 7, 10, 10]
+warehouse: [5, 4, 5, 5]
 
 Day 18
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [6, 10, 10, 10]
-warehouse: [3, 5, 5, 5]
+sold_wholesale: [9, 7, 10, 10]
+warehouse: [5, 4, 5, 5]
 
 Day 19
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [6, 10, 10, 10]
-warehouse: [3, 5, 5, 5]
+sold_wholesale: [9, 7, 10, 10]
+warehouse: [5, 4, 5, 5]
 
 Day 20
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [10, 8, 4, 10]
-sold_wholesale: [6, 10, 10, 10]
-warehouse: [3, 5, 5, 5]
+sold_wholesale: [9, 7, 10, 10]
+warehouse: [5, 4, 5, 5]
 
 Day 21
-harvested: [16, 18, 14, 20]
+harvested: [19, 15, 14, 20]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [6, 14, 10, 10]
-warehouse: [3, 6, 5, 5]
+sold_wholesale: [9, 11, 10, 10]
+warehouse: [5, 5, 5, 5]
 
 Day 22
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [4, 10, 8, 6]
-warehouse: [2, 4, 3, 3]
+sold_wholesale: [5, 9, 9, 4]
+warehouse: [3, 4, 4, 3]
 
 Day 23
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [3, 8, 6, 4]
-warehouse: [2, 4, 3, 3]
+sold_wholesale: [4, 8, 8, 3]
+warehouse: [2, 4, 4, 2]
 
 Day 24
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [3, 8, 6, 4]
-warehouse: [2, 4, 3, 3]
+sold_wholesale: [3, 8, 8, 2]
+warehouse: [2, 4, 4, 2]
 
 Day 25
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [3, 8, 6, 4]
-warehouse: [2, 4, 3, 3]
+sold_wholesale: [3, 8, 8, 2]
+warehouse: [2, 4, 4, 2]
 
 Day 26
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [3, 8, 6, 4]
-warehouse: [2, 4, 3, 3]
+sold_wholesale: [3, 8, 8, 2]
+warehouse: [2, 4, 4, 2]
 
 Day 27
-harvested: [13, 11, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [3, 8, 6, 4]
-warehouse: [2, 4, 3, 3]
+sold_wholesale: [3, 8, 8, 2]
+warehouse: [2, 4, 4, 2]
 
 Day 28
-harvested: [13, 7, 10, 14]
+harvested: [13, 11, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [3, 5, 6, 4]
-warehouse: [2, 3, 3, 3]
+sold_wholesale: [3, 8, 8, 2]
+warehouse: [2, 4, 4, 2]
 
 Day 29
-harvested: [13, 0, 10, 14]
+harvested: [13, 3, 12, 12]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [3, 0, 6, 4]
-warehouse: [2, 0, 3, 3]
+sold_wholesale: [3, 3, 8, 2]
+warehouse: [2, 1, 4, 2]
 
 Day 30
-harvested: [13, 0, 10, 14]
-sold_market: [10, 0, 4, 10]
-sold_wholesale: [3, 0, 6, 4]
-warehouse: [2, 0, 3, 3]
+harvested: [13, 0, 12, 12]
+sold_market: [10, 1, 4, 10]
+sold_wholesale: [3, 0, 8, 2]
+warehouse: [2, 0, 4, 2]
 
 
 
@@ -4114,371 +4114,371 @@ warehouse: [2, 0, 3, 3]
 
 True
 Day 1
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [9, 8, 11, 7]
-warehouse: [4, 4, 6, 3]
+sold_wholesale: [9, 8, 9, 9]
+warehouse: [4, 4, 5, 4]
 
 Day 2
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [11, 11, 17, 9]
-warehouse: [6, 5, 6, 4]
+sold_wholesale: [11, 11, 14, 11]
+warehouse: [6, 5, 5, 6]
 
 Day 3
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [13, 12, 17, 9]
-warehouse: [6, 5, 6, 5]
+sold_wholesale: [13, 12, 14, 13]
+warehouse: [6, 5, 5, 6]
 
 Day 4
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [13, 12, 17, 10]
-warehouse: [6, 5, 6, 5]
+sold_wholesale: [13, 12, 14, 13]
+warehouse: [6, 5, 5, 6]
 
 Day 5
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [13, 12, 17, 10]
-warehouse: [6, 5, 6, 5]
+sold_wholesale: [13, 12, 14, 13]
+warehouse: [6, 5, 5, 6]
 
 Day 6
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [13, 12, 17, 10]
-warehouse: [6, 5, 6, 5]
+sold_wholesale: [13, 12, 14, 13]
+warehouse: [6, 5, 5, 6]
 
 Day 7
-harvested: [19, 15, 18, 16]
+harvested: [19, 15, 15, 19]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [13, 12, 17, 10]
-warehouse: [6, 5, 6, 5]
+sold_wholesale: [13, 12, 14, 13]
+warehouse: [6, 5, 5, 6]
 
 Day 8
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [9, 9, 12, 9]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [8, 10, 13, 7]
+warehouse: [4, 4, 4, 4]
 
 Day 9
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [7, 8, 9, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [7, 9, 12, 6]
+warehouse: [3, 4, 4, 3]
 
 Day 10
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [6, 3, 1, 6]
-sold_wholesale: [7, 8, 9, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [6, 9, 12, 5]
+warehouse: [3, 4, 4, 3]
 
 Day 11
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [7, 7, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [6, 8, 11, 5]
+warehouse: [3, 4, 4, 3]
 
 Day 12
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [7, 7, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [6, 8, 11, 5]
+warehouse: [3, 4, 4, 3]
 
 Day 13
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [7, 7, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [6, 8, 11, 5]
+warehouse: [3, 4, 4, 3]
 
 Day 14
-harvested: [13, 11, 10, 14]
+harvested: [12, 12, 13, 11]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [7, 7, 8, 8]
-warehouse: [4, 4, 3, 4]
+sold_wholesale: [6, 8, 11, 5]
+warehouse: [3, 4, 4, 3]
 
 Day 15
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [17, 16, 19, 14]
-warehouse: [8, 7, 9, 7]
+sold_wholesale: [16, 16, 17, 17]
+warehouse: [8, 7, 7, 8]
 
 Day 16
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [20, 19, 25, 17]
-warehouse: [9, 7, 9, 7]
+sold_wholesale: [20, 19, 20, 21]
+warehouse: [9, 7, 7, 9]
 
 Day 17
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [21, 19, 25, 17]
-warehouse: [9, 7, 9, 7]
+sold_wholesale: [21, 19, 20, 22]
+warehouse: [9, 7, 7, 9]
 
 Day 18
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [21, 19, 25, 17]
-warehouse: [9, 7, 9, 7]
+sold_wholesale: [21, 19, 20, 22]
+warehouse: [9, 7, 7, 9]
 
 Day 19
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [21, 19, 25, 17]
-warehouse: [9, 7, 9, 7]
+sold_wholesale: [21, 19, 20, 22]
+warehouse: [9, 7, 7, 9]
 
 Day 20
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [6, 4, 2, 6]
-sold_wholesale: [21, 19, 25, 17]
-warehouse: [9, 7, 9, 7]
+sold_wholesale: [21, 19, 20, 22]
+warehouse: [9, 7, 7, 9]
 
 Day 21
-harvested: [27, 23, 27, 23]
+harvested: [27, 23, 22, 28]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [21, 22, 25, 17]
-warehouse: [9, 7, 9, 7]
+sold_wholesale: [21, 22, 20, 22]
+warehouse: [9, 7, 7, 9]
 
 Day 22
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [18, 21, 21, 17]
-warehouse: [7, 7, 7, 7]
+sold_wholesale: [19, 20, 22, 16]
+warehouse: [7, 7, 8, 6]
 
 Day 23
-harvested: [22, 22, 21, 23]
+harvested: [23, 21, 25, 19]
 sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 21, 19, 17]
-warehouse: [7, 7, 7, 7]
-
-Day 24
-harvested: [22, 22, 21, 23]
-sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 21, 19, 17]
-warehouse: [7, 7, 7, 7]
-
-Day 25
-harvested: [22, 22, 21, 23]
-sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 21, 19, 17]
-warehouse: [7, 7, 7, 7]
-
-Day 26
-harvested: [22, 22, 21, 23]
-sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 21, 19, 17]
-warehouse: [7, 7, 7, 7]
-
-Day 27
-harvested: [22, 22, 21, 23]
-sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 21, 19, 17]
-warehouse: [7, 7, 7, 7]
-
-Day 28
-harvested: [22, 22, 21, 23]
-sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 21, 19, 17]
-warehouse: [7, 7, 7, 7]
-
-Day 29
-harvested: [22, 22, 21, 23]
-sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 21, 19, 17]
-warehouse: [7, 7, 7, 7]
-
-Day 30
-harvested: [22, 16, 21, 23]
-sold_market: [6, 1, 2, 6]
-sold_wholesale: [16, 17, 19, 17]
-warehouse: [7, 5, 7, 7]
-
-
-
-
-
-
-
-True
-Day 1
-harvested: [19, 15, 18, 16]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [6, 7, 11, 4]
-warehouse: [3, 3, 5, 2]
-
-Day 2
-harvested: [19, 15, 18, 16]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [8, 9, 15, 5]
-warehouse: [4, 4, 6, 3]
-
-Day 3
-harvested: [19, 15, 18, 16]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [9, 9, 16, 6]
-warehouse: [4, 5, 6, 3]
-
-Day 4
-harvested: [19, 15, 18, 16]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [9, 10, 16, 6]
-warehouse: [4, 5, 6, 3]
-
-Day 5
-harvested: [19, 15, 18, 16]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [9, 10, 16, 6]
-warehouse: [4, 5, 6, 3]
-
-Day 6
-harvested: [19, 15, 18, 16]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [9, 10, 16, 6]
-warehouse: [4, 5, 6, 3]
-
-Day 7
-harvested: [19, 15, 18, 16]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [9, 10, 16, 6]
-warehouse: [4, 5, 6, 3]
-
-Day 8
-harvested: [13, 11, 10, 14]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [4, 7, 11, 4]
-warehouse: [3, 4, 3, 3]
-
-Day 9
-harvested: [13, 11, 10, 14]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [4, 7, 8, 4]
-warehouse: [2, 3, 3, 3]
-
-Day 10
-harvested: [13, 11, 10, 14]
-sold_market: [10, 5, 2, 10]
-sold_wholesale: [3, 6, 8, 4]
-warehouse: [2, 3, 3, 3]
-
-Day 11
-harvested: [13, 11, 10, 14]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [3, 4, 6, 4]
-warehouse: [2, 2, 3, 3]
-
-Day 12
-harvested: [13, 11, 10, 14]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [3, 3, 6, 4]
-warehouse: [2, 2, 3, 3]
-
-Day 13
-harvested: [13, 11, 10, 14]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [3, 3, 6, 4]
-warehouse: [2, 2, 3, 3]
-
-Day 14
-harvested: [13, 11, 10, 14]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [3, 3, 6, 4]
-warehouse: [2, 2, 3, 3]
-
-Day 15
-harvested: [27, 23, 27, 23]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [13, 11, 18, 11]
-warehouse: [6, 6, 8, 5]
-
-Day 16
-harvested: [27, 23, 27, 23]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [16, 14, 22, 12]
-warehouse: [7, 7, 9, 6]
-
-Day 17
-harvested: [27, 23, 27, 23]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [16, 15, 23, 13]
-warehouse: [8, 7, 9, 6]
-
-Day 18
-harvested: [27, 23, 27, 23]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [17, 15, 23, 13]
-warehouse: [8, 7, 9, 6]
-
-Day 19
-harvested: [27, 23, 27, 23]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [17, 15, 23, 13]
-warehouse: [8, 7, 9, 6]
-
-Day 20
-harvested: [27, 23, 27, 23]
-sold_market: [10, 8, 4, 10]
-sold_wholesale: [17, 15, 23, 13]
-warehouse: [8, 7, 9, 6]
-
-Day 21
-harvested: [27, 23, 27, 23]
-sold_market: [10, 3, 4, 10]
 sold_wholesale: [17, 20, 23, 13]
-warehouse: [8, 7, 9, 6]
-
-Day 22
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [14, 19, 19, 13]
-warehouse: [6, 7, 7, 6]
-
-Day 23
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 19, 17, 13]
-warehouse: [6, 7, 7, 6]
+warehouse: [7, 7, 8, 6]
 
 Day 24
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 19, 17, 13]
-warehouse: [6, 7, 7, 6]
+harvested: [23, 21, 25, 19]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [17, 20, 23, 13]
+warehouse: [7, 7, 8, 6]
 
 Day 25
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 19, 17, 13]
-warehouse: [6, 7, 7, 6]
+harvested: [23, 21, 25, 19]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [17, 20, 23, 13]
+warehouse: [7, 7, 8, 6]
 
 Day 26
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 19, 17, 13]
-warehouse: [6, 7, 7, 6]
+harvested: [23, 21, 25, 19]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [17, 20, 23, 13]
+warehouse: [7, 7, 8, 6]
 
 Day 27
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 19, 17, 13]
-warehouse: [6, 7, 7, 6]
+harvested: [23, 21, 25, 19]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [17, 20, 23, 13]
+warehouse: [7, 7, 8, 6]
 
 Day 28
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 19, 17, 13]
-warehouse: [6, 7, 7, 6]
+harvested: [23, 21, 25, 19]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [17, 20, 23, 13]
+warehouse: [7, 7, 8, 6]
 
 Day 29
-harvested: [22, 22, 21, 23]
-sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 19, 17, 13]
-warehouse: [6, 7, 7, 6]
+harvested: [23, 21, 25, 19]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [17, 20, 23, 13]
+warehouse: [7, 7, 8, 6]
 
 Day 30
-harvested: [22, 16, 21, 23]
+harvested: [23, 17, 25, 19]
+sold_market: [6, 1, 2, 6]
+sold_wholesale: [17, 17, 23, 13]
+warehouse: [7, 6, 8, 6]
+
+
+
+
+
+
+
+True
+Day 1
+harvested: [19, 15, 15, 19]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [6, 7, 9, 6]
+warehouse: [3, 3, 4, 3]
+
+Day 2
+harvested: [19, 15, 15, 19]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [8, 9, 12, 8]
+warehouse: [4, 4, 5, 4]
+
+Day 3
+harvested: [19, 15, 15, 19]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [9, 9, 13, 9]
+warehouse: [4, 5, 5, 4]
+
+Day 4
+harvested: [19, 15, 15, 19]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [9, 10, 13, 9]
+warehouse: [4, 5, 5, 4]
+
+Day 5
+harvested: [19, 15, 15, 19]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [9, 10, 13, 9]
+warehouse: [4, 5, 5, 4]
+
+Day 6
+harvested: [19, 15, 15, 19]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [9, 10, 13, 9]
+warehouse: [4, 5, 5, 4]
+
+Day 7
+harvested: [19, 15, 15, 19]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [9, 10, 13, 9]
+warehouse: [4, 5, 5, 4]
+
+Day 8
+harvested: [12, 12, 13, 11]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [4, 8, 12, 3]
+warehouse: [2, 4, 4, 2]
+
+Day 9
+harvested: [12, 12, 13, 11]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [2, 7, 11, 2]
+warehouse: [2, 4, 4, 1]
+
+Day 10
+harvested: [12, 12, 13, 11]
+sold_market: [10, 5, 2, 10]
+sold_wholesale: [2, 7, 11, 1]
+warehouse: [2, 4, 4, 1]
+
+Day 11
+harvested: [12, 12, 13, 11]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [2, 5, 9, 1]
+warehouse: [2, 3, 4, 1]
+
+Day 12
+harvested: [12, 12, 13, 11]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [2, 4, 9, 1]
+warehouse: [2, 3, 4, 1]
+
+Day 13
+harvested: [12, 12, 13, 11]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [2, 4, 9, 1]
+warehouse: [2, 3, 4, 1]
+
+Day 14
+harvested: [12, 12, 13, 11]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [2, 4, 9, 1]
+warehouse: [2, 3, 4, 1]
+
+Day 15
+harvested: [27, 23, 22, 28]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [13, 12, 15, 13]
+warehouse: [6, 6, 7, 6]
+
+Day 16
+harvested: [27, 23, 22, 28]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [16, 14, 18, 16]
+warehouse: [7, 7, 7, 8]
+
+Day 17
+harvested: [27, 23, 22, 28]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [16, 15, 18, 18]
+warehouse: [8, 7, 7, 8]
+
+Day 18
+harvested: [27, 23, 22, 28]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [17, 15, 18, 18]
+warehouse: [8, 7, 7, 8]
+
+Day 19
+harvested: [27, 23, 22, 28]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [17, 15, 18, 18]
+warehouse: [8, 7, 7, 8]
+
+Day 20
+harvested: [27, 23, 22, 28]
+sold_market: [10, 8, 4, 10]
+sold_wholesale: [17, 15, 18, 18]
+warehouse: [8, 7, 7, 8]
+
+Day 21
+harvested: [27, 23, 22, 28]
 sold_market: [10, 3, 4, 10]
-sold_wholesale: [12, 15, 17, 13]
-warehouse: [6, 5, 7, 6]
+sold_wholesale: [17, 20, 18, 18]
+warehouse: [8, 7, 7, 8]
+
+Day 22
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [14, 18, 20, 11]
+warehouse: [7, 7, 8, 6]
+
+Day 23
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [14, 18, 21, 10]
+warehouse: [6, 7, 8, 5]
+
+Day 24
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [13, 18, 21, 9]
+warehouse: [6, 7, 8, 5]
+
+Day 25
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [13, 18, 21, 9]
+warehouse: [6, 7, 8, 5]
+
+Day 26
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [13, 18, 21, 9]
+warehouse: [6, 7, 8, 5]
+
+Day 27
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [13, 18, 21, 9]
+warehouse: [6, 7, 8, 5]
+
+Day 28
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [13, 18, 21, 9]
+warehouse: [6, 7, 8, 5]
+
+Day 29
+harvested: [23, 21, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [13, 18, 21, 9]
+warehouse: [6, 7, 8, 5]
+
+Day 30
+harvested: [23, 17, 25, 19]
+sold_market: [10, 3, 4, 10]
+sold_wholesale: [13, 15, 21, 9]
+warehouse: [6, 6, 8, 5]
 
 
 
