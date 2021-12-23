@@ -1,28 +1,60 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from sad import Orchard, FruitTypeInfo, Solution, DaySolution
+from project_app.sad import Orchard, FruitTypeInfo
+
+
+def multiplier1(k):
+    if k < 30:
+        return 1.5
+    if k < 50:
+        return 1.2
+    if k < 80:
+        return 1.1
+    if k <= 100:
+        return 1
+
+
+def multiplier2(k):
+    if k < 30:
+        return 1.2
+    if k < 50:
+        return 1.1
+    if k < 80:
+        return 1.1
+    if k <= 100:
+        return 1
+
+
+def employee_cost(kilograms):
+    if 0 <= kilograms <= 10:
+        cost = 30
+    elif 10 < kilograms <= 20:
+        cost = 40
+    elif 20 < kilograms <= 40:
+        cost = 60
+    elif 40 < kilograms <= 60:
+        cost = 90
+    elif 60 < kilograms <= 100:
+        cost = 100
+    else:
+        cost = 200
+    return cost
+
+
+def warehouse_cost(kilograms):
+    if 0 <= kilograms <= 10:
+        cost = 15
+    elif 10 < kilograms <= 20:
+        cost = 20
+    elif 20 < kilograms <= 30:
+        cost = 25
+    else:
+        cost = 30
+    return cost
+
 
 def main():
     num_days = 30
-    def multiplier1(k):
-        if k < 30:
-            return 1.5
-        if k < 50:
-            return 1.2
-        if k < 80:
-            return 1.1
-        if k <= 100:
-            return 1
-
-    def multiplier2(k):
-        if k < 30:
-            return 1.2
-        if k < 50:
-            return 1.1
-        if k < 80:
-            return 1.1
-        if k <= 100:
-            return 1
 
     gruszki = FruitTypeInfo(name="gruszki", quantity=742, planting_cost=85, base_price=[3]*num_days,
                             wholesale_price=[3]*num_days, demand=[2]*(num_days//3)+[4]*(num_days-num_days//3), min_market_sold=10,
@@ -39,32 +71,6 @@ def main():
     wisnie = FruitTypeInfo(name="wisnie", quantity=1000, planting_cost=110, base_price=[7]*num_days,
                            wholesale_price=[5]*num_days, demand=[10]*num_days, min_market_sold=20,
                            multiplier=multiplier2)
-
-    def employee_cost(kilograms):
-        if 0 <= kilograms <= 10:
-            cost = 30
-        elif 10 < kilograms <= 20:
-            cost = 40
-        elif 20 < kilograms <= 40:
-            cost = 60
-        elif 40 < kilograms <= 60:
-            cost = 90
-        elif 60 < kilograms <= 100:
-            cost = 100
-        else:
-            cost = 200
-        return cost
-
-    def warehouse_cost(kilograms):
-        if 0 <= kilograms <= 10:
-            cost = 15
-        elif 10 < kilograms <= 20:
-            cost = 20
-        elif 20 < kilograms <= 30:
-            cost = 25
-        else:
-            cost = 30
-        return cost
 
     orchard = Orchard([wisnie, jablka, gruszki, sliwki], employee_cost, warehouse_cost, 100, 40, num_days)
 
@@ -99,8 +105,10 @@ def main():
 
     return profit_lists
 
+    """
     sol, profit = orchard.genetic_algorithm(max_iter_no_progress=400, max_iter=3000, replacement_rate=0.4,
                                             mutation_proba=0.4)
     print(sol, profit)
+    """
 
-main()
+#main()

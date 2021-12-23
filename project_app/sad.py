@@ -1,12 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from typing import List, Callable
-from solution_classes import Solution, DaySolution, FruitTypeInfo
-from model_limits import check_fruit_limits, check_harvest_limits, \
-    check_warehouse_limits, check_minimum_amount_sold, check_if_warehouse_sold, \
+from project_app.solution_classes import Solution, FruitTypeInfo
+from project_app.model_limits import check_fruit_limits, check_harvest_limits, \
+    check_warehouse_limits, check_if_warehouse_sold, \
     check_if_today_amount_correct, check_if_non_negative
 from copy import deepcopy
-import random
 import math
 import numpy as np
 import random
@@ -14,7 +13,7 @@ import random
 # główna klasa
 class Orchard:
     def __init__(self, fruit_types: List[FruitTypeInfo], employee_cost: Callable,
-                 warehouse_cost: Callable, max_daily_harvest: int, warehouse_capacity: int, num_days):
+                 warehouse_cost: Callable, max_daily_harvest: int, warehouse_capacity: int, num_days: int):
         """
         :param fruit_types: lista obiektów klasy FruitTypeInfo (każdy indeks to inny typ owocu)
         :param employee_cost: funkcja zwracająca koszta zebrania
@@ -23,6 +22,7 @@ class Orchard:
                            pewnej ilości owoców
         :param max_daily_harvest: maksymalna dzienna ilość zbiorów
         :param warehouse_capacity: maksymalna pojemność magazynu
+        :param num_days: liczba dni w ciągu których prowadzone są zbiory
         """
         self.fruit_types = fruit_types
         self.employee_cost = employee_cost
@@ -141,7 +141,7 @@ class Orchard:
                 parents.append(population[candidate1])
             else:
                 parents.append(population[candidate2])
-        print(f"{parents[0][1]},{parents[1][1]}")
+        #print(f"{parents[0][1]},{parents[1][1]}")
         return parents
 
     #metoda krzyżująca dwa rozwiązania sol1 i sol2
@@ -165,12 +165,11 @@ class Orchard:
             if self.check_if_sol_acceptable(child):
                 return child
         return None
-        #raise Exception("error nie udało się skrzyżować rozwiązań")
 
     # znajduje jak najlepsze rozwiazanie metoda Symulowanego Wyżarzania
-    def simulated_annealing(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha, neighbour_type, initial_sol):
+    def simulated_annealing(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha,
+                            neighbour_type, initial_sol, verbose=True):
         solution = self.create_initial_population()[initial_sol][0]
-        print(solution)
         best_solution = solution
         best_profit = self.calculate_objective_fun(solution)
         T = T_start                         #Temperatura
@@ -180,7 +179,8 @@ class Orchard:
         profit_lst = []
 
         while T > T_stop:               #1 kryterium stopu
-            print(f"best profit: {best_profit} | temperature: {T}")
+            if verbose:
+                print(f"best profit: {best_profit} | temperature: {T}")
             for j in range(iterations_in_temp):
                 candidate_sol = self.draw_solution(solution, neighbour_type)        #losowanie sąsiada z otoczenia
                 candidate_sol_fun = self.calculate_objective_fun(candidate_sol)     #wyznaczenie fun celu dla wylosowanego
@@ -206,7 +206,7 @@ class Orchard:
         print("kryt stopu 1")
         return best_solution, best_profit, (self.num_draws, self.num_ok_draws), profit_lst
 
-    def genetic_algorithm(self, max_iter_no_progress, max_iter, replacement_rate=0.5, mutation_proba=0.2):
+    def genetic_algorithm(self, max_iter_no_progress, max_iter, replacement_rate=0.5, mutation_proba=0.2, verbose: bool=True):
         """
         Metoda znajdująca rozwiązanie optymalne za pomocą algorytmu genetycznego
 
@@ -216,6 +216,7 @@ class Orchard:
                                 w każdej iteracji algorytmu (liczba z zakresu 0-1).
         :param mutation_proba: Prawdopodobieństwo wystąpienia mutacji u dziecka
                                (liczba z zakresu 0-1).
+        :param verbose: wyświetlaj numer iteracji i dotychczas najlepszy wynik
         :return: Znalezione rozwiązanie, koszt rozwiązania
         """
         #
@@ -307,6 +308,9 @@ class Orchard:
             else:
                 # w innym przypadku zwiększamy licznik iteracji bez poprawy
                 iter_with_no_progress += 1
+
+            if verbose:
+                print(f"best profit: {population[-1][1]} | iteration number: {iterations}")
 
         return population[-1][0], population[-1][1]
 
@@ -639,6 +643,28 @@ class Orchard:
         #print(one, two, four, five, six)
 
         return one and two and four and five and six and seven
+
+    def format_solution(self, solution: Solution):
+        txt = ""
+        for i, day in enumerate(solution.days):
+            harvested_types = "zebrane: "
+            market_types = "sprzedane na targu: "
+            wholesale_types = "sprzedane w skupie: "
+            warehouse_types = "do magazynu: "
+
+            for j in range(len(day.harvested)):
+                harvested_types += f"{self.fruit_types[j].name}:{day.harvested[j]}, "
+                market_types += f"{self.fruit_types[j].name}:{day.sold_market[j]}, "
+                wholesale_types += f"{self.fruit_types[j].name}:{day.sold_wholesale[j]}, "
+                warehouse_types += f"{self.fruit_types[j].name}:{day.warehouse[j]}, "
+
+            mark_len = max(len(harvested_types), len(market_types), len(wholesale_types), len(warehouse_types))
+            pause = "".join(['='] * mark_len)
+
+            txt += f"{pause}\nDay {i + 1}\n{harvested_types}\n{market_types}\n" \
+                   f"{wholesale_types}\n{warehouse_types}\n{pause}\n\n"
+        txt += "\n"
+        return txt
 
     def calculate_objective_fun(self, solution: Solution):
         """

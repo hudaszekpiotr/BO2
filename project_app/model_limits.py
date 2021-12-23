@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from solution_classes import Solution, FruitTypeInfo
+from project_app.solution_classes import Solution, FruitTypeInfo
 from typing import List
-import numpy as np
 
 
 def check_fruit_limits(solution: Solution, fruit_types: List[FruitTypeInfo]):

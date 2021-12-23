@@ -1,0 +1,242 @@
+===============================================================
+Day 1
+zebrane: wisnie:17, jabłka:17, gruszki:17, sliwki:17, 
+sprzedane na targu: wisnie:10, jabłka:5, gruszki:2, sliwki:10, 
+sprzedane w skupie: wisnie:4, jabłka:8, gruszki:10, sliwki:4, 
+do magazynu: wisnie:3, jabłka:4, gruszki:5, sliwki:3, 
+===============================================================
+
+===============================================================
+Day 2
+zebrane: wisnie:22, jabłka:18, gruszki:20, sliwki:20, 
+sprzedane na targu: wisnie:10, jabłka:5, gruszki:1, sliwki:10, 
+sprzedane w skupie: wisnie:8, jabłka:12, gruszki:14, sliwki:7, 
+do magazynu: wisnie:7, jabłka:5, gruszki:10, sliwki:6, 
+===============================================================
+
+=================================================================
+Day 3
+zebrane: wisnie:21, jabłka:19, gruszki:19, sliwki:21, 
+sprzedane na targu: wisnie:10, jabłka:2, gruszki:2, sliwki:10, 
+sprzedane w skupie: wisnie:10, jabłka:11, gruszki:20, sliwki:13, 
+do magazynu: wisnie:8, jabłka:11, gruszki:7, sliwki:4, 
+=================================================================
+
+================================================================
+Day 4
+zebrane: wisnie:21, jabłka:17, gruszki:20, sliwki:21, 
+sprzedane na targu: wisnie:10, jabłka:3, gruszki:2, sliwki:10, 
+sprzedane w skupie: wisnie:12, jabłka:17, gruszki:17, sliwki:8, 
+do magazynu: wisnie:7, jabłka:8, gruszki:8, sliwki:7, 
+================================================================
+
+=================================================================
+Day 5
+zebrane: wisnie:20, jabłka:17, gruszki:22, sliwki:20, 
+sprzedane na targu: wisnie:10, jabłka:1, gruszki:1, sliwki:10, 
+sprzedane w skupie: wisnie:15, jabłka:12, gruszki:19, sliwki:11, 
+do magazynu: wisnie:2, jabłka:12, gruszki:10, sliwki:6, 
+=================================================================
+
+================================================================
+Day 6
+zebrane: wisnie:21, jabłka:20, gruszki:20, sliwki:19, 
+sprzedane na targu: wisnie:10, jabłka:5, gruszki:2, sliwki:10, 
+sprzedane w skupie: wisnie:6, jabłka:18, gruszki:19, sliwki:10, 
+do magazynu: wisnie:7, jabłka:9, gruszki:9, sliwki:5, 
+================================================================
+
+================================================================
+Day 7
+zebrane: wisnie:23, jabłka:19, gruszki:20, sliwki:19, 
+sprzedane na targu: wisnie:10, jabłka:3, gruszki:1, sliwki:10, 
+sprzedane w skupie: wisnie:11, jabłka:14, gruszki:23, sliwki:9, 
+do magazynu: wisnie:9, jabłka:11, gruszki:5, sliwki:5, 
+================================================================
+
+===============================================================
+Day 8
+zebrane: wisnie:16, jabłka:13, gruszki:14, sliwki:17, 
+sprzedane na targu: wisnie:10, jabłka:1, gruszki:2, sliwki:10, 
+sprzedane w skupie: wisnie:9, jabłka:18, gruszki:13, sliwki:7, 
+do magazynu: wisnie:6, jabłka:5, gruszki:4, sliwki:5, 
+===============================================================
+
+===============================================================
+Day 9
+zebrane: wisnie:17, jabłka:11, gruszki:13, sliwki:19, 
+sprzedane na targu: wisnie:10, jabłka:5, gruszki:2, sliwki:10, 
+sprzedane w skupie: wisnie:7, jabłka:8, gruszki:11, sliwki:7, 
+do magazynu: wisnie:6, jabłka:3, gruszki:4, sliwki:7, 
+===============================================================
+
+===============================================================
+Day 10
+zebrane: wisnie:17, jabłka:14, gruszki:18, sliwki:11, 
+sprzedane na targu: wisnie:10, jabłka:5, gruszki:2, sliwki:10, 
+sprzedane w skupie: wisnie:7, jabłka:7, gruszki:12, sliwki:7, 
+do magazynu: wisnie:6, jabłka:5, gruszki:8, sliwki:1, 
+===============================================================
+
+===============================================================
+Day 11
+zebrane: wisnie:19, jabłka:10, gruszki:15, sliwki:16, 
+sprzedane na targu: wisnie:10, jabłka:6, gruszki:1, sliwki:10, 
+sprzedane w skupie: wisnie:9, jabłka:7, gruszki:16, sliwki:1, 
+do magazynu: wisnie:6, jabłka:2, gruszki:6, sliwki:6, 
+===============================================================
+
+===============================================================
+Day 12
+zebrane: wisnie:17, jabłka:13, gruszki:13, sliwki:17, 
+sprzedane na targu: wisnie:10, jabłka:8, gruszki:4, sliwki:10, 
+sprzedane w skupie: wisnie:7, jabłka:4, gruszki:11, sliwki:6, 
+do magazynu: wisnie:6, jabłka:3, gruszki:4, sliwki:7, 
+===============================================================
+
+===============================================================
+Day 13
+zebrane: wisnie:21, jabłka:12, gruszki:15, sliwki:12, 
+sprzedane na targu: wisnie:10, jabłka:6, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:9, jabłka:5, gruszki:10, sliwki:9, 
+do magazynu: wisnie:8, jabłka:4, gruszki:6, sliwki:0, 
+===============================================================
+
+===============================================================
+Day 14
+zebrane: wisnie:18, jabłka:13, gruszki:13, sliwki:16, 
+sprzedane na targu: wisnie:10, jabłka:8, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:9, jabłka:6, gruszki:13, sliwki:1, 
+do magazynu: wisnie:7, jabłka:3, gruszki:3, sliwki:5, 
+===============================================================
+
+=================================================================
+Day 15
+zebrane: wisnie:27, jabłka:23, gruszki:28, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:6, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:18, jabłka:12, gruszki:17, sliwki:13, 
+do magazynu: wisnie:6, jabłka:8, gruszki:11, sliwki:4, 
+=================================================================
+
+=================================================================
+Day 16
+zebrane: wisnie:27, jabłka:23, gruszki:28, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:8, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:16, jabłka:16, gruszki:26, sliwki:11, 
+do magazynu: wisnie:7, jabłka:7, gruszki:10, sliwki:5, 
+=================================================================
+
+=================================================================
+Day 17
+zebrane: wisnie:27, jabłka:23, gruszki:28, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:6, gruszki:1, sliwki:10, 
+sprzedane w skupie: wisnie:16, jabłka:17, gruszki:27, sliwki:12, 
+do magazynu: wisnie:8, jabłka:7, gruszki:10, sliwki:5, 
+=================================================================
+
+=================================================================
+Day 18
+zebrane: wisnie:27, jabłka:23, gruszki:28, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:8, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:17, jabłka:15, gruszki:25, sliwki:12, 
+do magazynu: wisnie:8, jabłka:7, gruszki:10, sliwki:5, 
+=================================================================
+
+=================================================================
+Day 19
+zebrane: wisnie:27, jabłka:23, gruszki:28, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:8, gruszki:4, sliwki:10, 
+sprzedane w skupie: wisnie:19, jabłka:13, gruszki:25, sliwki:11, 
+do magazynu: wisnie:6, jabłka:9, gruszki:9, sliwki:6, 
+=================================================================
+
+=================================================================
+Day 20
+zebrane: wisnie:27, jabłka:23, gruszki:28, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:6, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:15, jabłka:17, gruszki:27, sliwki:12, 
+do magazynu: wisnie:8, jabłka:9, gruszki:7, sliwki:6, 
+=================================================================
+
+=================================================================
+Day 21
+zebrane: wisnie:27, jabłka:23, gruszki:28, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:3, gruszki:4, sliwki:10, 
+sprzedane w skupie: wisnie:17, jabłka:22, gruszki:22, sliwki:12, 
+do magazynu: wisnie:8, jabłka:7, gruszki:9, sliwki:6, 
+=================================================================
+
+=================================================================
+Day 22
+zebrane: wisnie:20, jabłka:24, gruszki:23, sliwki:21, 
+sprzedane na targu: wisnie:10, jabłka:2, gruszki:1, sliwki:10, 
+sprzedane w skupie: wisnie:12, jabłka:20, gruszki:21, sliwki:13, 
+do magazynu: wisnie:6, jabłka:9, gruszki:10, sliwki:4, 
+=================================================================
+
+=================================================================
+Day 23
+zebrane: wisnie:22, jabłka:22, gruszki:22, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:2, gruszki:4, sliwki:10, 
+sprzedane w skupie: wisnie:12, jabłka:21, gruszki:23, sliwki:10, 
+do magazynu: wisnie:6, jabłka:8, gruszki:5, sliwki:6, 
+=================================================================
+
+=================================================================
+Day 24
+zebrane: wisnie:22, jabłka:22, gruszki:22, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:2, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:12, jabłka:19, gruszki:20, sliwki:12, 
+do magazynu: wisnie:6, jabłka:9, gruszki:4, sliwki:6, 
+=================================================================
+
+=================================================================
+Day 25
+zebrane: wisnie:22, jabłka:22, gruszki:22, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:2, gruszki:1, sliwki:10, 
+sprzedane w skupie: wisnie:10, jabłka:21, gruszki:15, sliwki:14, 
+do magazynu: wisnie:8, jabłka:8, gruszki:10, sliwki:4, 
+=================================================================
+
+=================================================================
+Day 26
+zebrane: wisnie:22, jabłka:22, gruszki:22, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:2, gruszki:4, sliwki:10, 
+sprzedane w skupie: wisnie:14, jabłka:17, gruszki:21, sliwki:10, 
+do magazynu: wisnie:6, jabłka:11, gruszki:7, sliwki:6, 
+=================================================================
+
+=================================================================
+Day 27
+zebrane: wisnie:22, jabłka:22, gruszki:22, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:1, gruszki:4, sliwki:10, 
+sprzedane w skupie: wisnie:10, jabłka:25, gruszki:18, sliwki:11, 
+do magazynu: wisnie:8, jabłka:7, gruszki:7, sliwki:7, 
+=================================================================
+
+=================================================================
+Day 28
+zebrane: wisnie:22, jabłka:22, gruszki:22, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:3, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:14, jabłka:19, gruszki:17, sliwki:13, 
+do magazynu: wisnie:6, jabłka:7, gruszki:9, sliwki:6, 
+=================================================================
+
+================================================================
+Day 29
+zebrane: wisnie:23, jabłka:5, gruszki:24, sliwki:24, 
+sprzedane na targu: wisnie:10, jabłka:2, gruszki:3, sliwki:10, 
+sprzedane w skupie: wisnie:13, jabłka:4, gruszki:20, sliwki:12, 
+do magazynu: wisnie:6, jabłka:6, gruszki:10, sliwki:8, 
+================================================================
+
+================================================================
+Day 30
+zebrane: wisnie:22, jabłka:0, gruszki:22, sliwki:22, 
+sprzedane na targu: wisnie:10, jabłka:3, gruszki:4, sliwki:10, 
+sprzedane w skupie: wisnie:12, jabłka:3, gruszki:21, sliwki:14, 
+do magazynu: wisnie:6, jabłka:0, gruszki:7, sliwki:6, 
+================================================================
+
+
+profit: 6061.200000000003
