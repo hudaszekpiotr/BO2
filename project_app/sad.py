@@ -217,7 +217,7 @@ class Orchard:
         :param mutation_proba: Prawdopodobieństwo wystąpienia mutacji u dziecka
                                (liczba z zakresu 0-1).
         :param verbose: wyświetlaj numer iteracji i dotychczas najlepszy wynik
-        :return: Znalezione rozwiązanie, koszt rozwiązania
+        :return: Znalezione rozwiązanie, koszt rozwiązania, ilość wykonanych iteracji
         """
         #
         solutions = self.create_initial_population()
@@ -312,7 +312,7 @@ class Orchard:
             if verbose:
                 print(f"best profit: {population[-1][1]} | iteration number: {iterations}")
 
-        return population[-1][0], population[-1][1]
+        return population[-1][0], population[-1][1], iterations
 
     def generate_all_to_wholesale(self, harvest_strategies: List[List]):
         """

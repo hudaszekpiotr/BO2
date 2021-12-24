@@ -27,11 +27,11 @@ def genetic(iter_no_progress: int = typer.Option(...,"--iter_no_progress"), max_
             mutation_proba: float = typer.Option(...,"--mutation_proba"),
             verbose: bool = typer.Option(False,"--verbose")) -> None:
 
-    sol, profit = orchard.genetic_algorithm(max_iter_no_progress=iter_no_progress, max_iter=max_iter,
+    sol, profit, iterations = orchard.genetic_algorithm(max_iter_no_progress=iter_no_progress, max_iter=max_iter,
                                             replacement_rate=replacement_rate,
                                             mutation_proba=mutation_proba, verbose=verbose)
 
-    results = f"{orchard.format_solution(sol)}profit: {profit}"
+    results = f"{orchard.format_solution(sol)}profit: {profit}\niteracje: {iterations}"
     print(results)
 
     with open("wyniki/algorytm_genetyczny.txt", "w") as f:
