@@ -27,6 +27,12 @@ def multiplier2(k):
 
 
 def employee_cost(kilograms):
+    """
+    Funkcja zwracająca koszty pracy pracowników przy zbiorach.
+    Można ją edytować
+    :param kilograms: Ilość kilogramów zebrana w ciągu dnia
+    :return: Koszt pracy
+    """
     if 0 <= kilograms <= 10:
         cost = 30
     elif 10 < kilograms <= 20:
@@ -43,6 +49,12 @@ def employee_cost(kilograms):
 
 
 def warehouse_cost(kilograms):
+    """
+    Funkcja zwracająca koszt magazynowania owoców.
+    Można ją edytować
+    :param kilograms: Ilość kilogramów trafiająca do magazynu
+    :return: Koszt magazynowania owoców.
+    """
     if 0 <= kilograms <= 10:
         cost = 15
     elif 10 < kilograms <= 20:
@@ -54,7 +66,12 @@ def warehouse_cost(kilograms):
     return cost
 
 
+# Ilość dni przez którą prowadzimy zbiory i sprzedaż
 num_days = 30
+
+# Ponieżej można tworzyć obiekty reprezentujące owoce. W pliku solution_classes.py znajdują
+# się opisy co oznaczają poszczególne parametry klasy.
+
 gruszki = FruitTypeInfo(name="gruszki", quantity=742, planting_cost=85, base_price=[3]*num_days,
                         wholesale_price=[3]*num_days, demand=[2]*(num_days//3)+[4]*(num_days-num_days//3), min_market_sold=10,
                         multiplier=multiplier1)
@@ -71,6 +88,8 @@ wisnie = FruitTypeInfo(name="wisnie", quantity=1000, planting_cost=110, base_pri
                        wholesale_price=[5]*num_days, demand=[10]*num_days, min_market_sold=20,
                        multiplier=multiplier2)
 
+# Poniżej tworzymy obiekt reprezentujący sad. Obiekt musi nazywać się orchard jednak poszczególne
+# parametry można oczywiście edytować.
 orchard = Orchard(fruit_types=[wisnie, jablka, gruszki, sliwki], employee_cost=employee_cost,
                   warehouse_cost=warehouse_cost, max_daily_harvest=100, warehouse_capacity=40, num_days=num_days)
 

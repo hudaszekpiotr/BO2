@@ -25,13 +25,14 @@ def main(version: Optional[bool] = typer.Option(None,"--version","-v",
 def genetic(iter_no_progress: int = typer.Option(...,"--iter_no_progress"), max_iter: int = typer.Option(...,"--max_iter"),
             replacement_rate: float = typer.Option(...,"--replacement_rate"),
             mutation_proba: float = typer.Option(...,"--mutation_proba"),
+            random_demand_rate: bool = typer.Option(False,"--random_demand_rate"),
             verbose: bool = typer.Option(False,"--verbose")) -> None:
 
     sol, profit, iterations = orchard.genetic_algorithm(max_iter_no_progress=iter_no_progress, max_iter=max_iter,
                                             replacement_rate=replacement_rate,
-                                            mutation_proba=mutation_proba, verbose=verbose)
+                                            mutation_proba=mutation_proba, random_demand_rate=random_demand_rate, verbose=verbose)
 
-    results = f"{orchard.format_solution(sol)}profit: {profit}\niteracje: {iterations}"
+    results = f"{orchard.format_solution(sol)}Zysk: {profit}\nIteracje: {iterations}"
     print(results)
 
     with open("wyniki/algorytm_genetyczny.txt", "w") as f:
@@ -57,7 +58,7 @@ def annealing(t_start: int = typer.Option(..., "--t_start"),
                                                         epsilon=epsilon, iterations_epsilon=iter_epsilon, alpha=alpha,
                                                         neighbour_type=neighbour_type, initial_sol=initial_sol, verbose=verbose)
 
-        results = f"{orchard.format_solution(sol)}profit: {profit}"
+        results = f"{orchard.format_solution(sol)}Zysk: {profit}"
         print(results)
 
         with open("wyniki/algorytm_wyrzarzania.txt", "w") as f:

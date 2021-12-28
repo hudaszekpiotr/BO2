@@ -39,11 +39,13 @@ class FruitTypeInfo:
         self.name = name  # nazwa owocu
         self.quantity = quantity  # ilość owoców danego typu
         self.planting_cost = planting_cost  # koszt zasadzenia i wyhodowania owoców
-        self.base_price = base_price  # lista cen (indeksy to poszczególne dni miesiąca)
-        self.wholesale_price = wholesale_price  # lista cen (indeksy to poszczególne dni miesiąca)
-        self.demand = demand  # lista popytów
+        self.base_price = base_price  # lista cen bazowych na targu (indeksy to poszczególne dni miesiąca)
+        self.wholesale_price = wholesale_price  # lista cen w skupie (indeksy to poszczególne dni miesiąca)
+        self.demand = demand  # lista popytów (indeksy to poszczególne dni miesiąca)
         self.min_market_sold = min_market_sold  # minimalna ilość jaka musi zostać sprzedana na targu w ciągu miesiąca
-        self.multiplier = multiplier  # funkcja
+                                                # powyższe ograniczenie ostatecznie nie jest używane
+
+        self.multiplier = multiplier  # funkcja zwracająca mnożnik ceny bazowej na targu
 
     # sprawdza nmożnik w zależności od spełninia popytu
     def check_multiplier(self, demand, sold):
