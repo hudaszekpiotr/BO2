@@ -13,8 +13,8 @@ Znaczenie poszczególnych parametrów:
 - ```--t_start``` temperatura początkowa
 - ```--t_stop``` temperatura końcowa
 - ```--iter_in_temp``` ilość iteracji wykonywanych dla jednej temperatury
-- ```--epsilon``` 
-- ```--iter_epsilon```
+- ```--epsilon``` minimalna wartość o którą musi zmienić funkcja celu przez okres iteracji określony przez ```--iter_epsilon``` aby algorytm nie zakończył działania
+- ```--iter_epsilon``` ilość iteracji po której algorytm zakończy działanie jeśli funkcja celu nie zmieniła się o więcej niż epsilon
 - ```--alpha``` współczynnik o jaki zmniejszana jest temperatura
 - ```--neighbour_type ``` metoda wyboru sąsiada
 - ```--initial_sol``` numer rozwiązania początkowego

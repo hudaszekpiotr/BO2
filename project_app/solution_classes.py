@@ -34,7 +34,7 @@ class Solution:
 
 # informacje o danym typie owoców: nazwa, ilośc w sadzie, cena bazowa, cena skupu, mnożnik
 class FruitTypeInfo:
-    def __init__(self, name: str, quantity: int, planting_cost: int, base_price: List,
+    def __init__(self, name: str, quantity: int, planting_cost: float, base_price: List,
                  wholesale_price: List, demand: List, min_market_sold: int, multiplier: Callable):
         self.name = name  # nazwa owocu
         self.quantity = quantity  # ilość owoców danego typu

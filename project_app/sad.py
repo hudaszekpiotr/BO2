@@ -4,7 +4,7 @@ from typing import List, Callable
 from project_app.solution_classes import Solution, FruitTypeInfo
 from project_app.model_limits import check_fruit_limits, check_harvest_limits, \
     check_warehouse_limits, check_if_warehouse_sold, \
-    check_if_today_amount_correct, check_if_non_negative
+    check_if_today_amount_correct, check_if_non_negative, check_if_sold_market_less_than_demand
 from copy import deepcopy
 import math
 import numpy as np
@@ -145,18 +145,26 @@ class Orchard:
         return parents
 
     #metoda krzyżująca dwa rozwiązania sol1 i sol2
-    def crossover(self, sol1: Solution, sol2: Solution):
+    def crossover(self, sol1: Solution, sol2: Solution, bruteforce_comapre=False):
         if (not self.check_if_sol_acceptable(sol1)) or (not self.check_if_sol_acceptable(sol2)):
             raise Exception("error podano niedopuszczalne rozw. do skrzyżowania")
 
         for _ in range(100):
-            begin = random.randint(3, self.num_days-2)
-            end = random.randint(begin+1, self.num_days-1)
-            part1 = deepcopy(sol1.days[0:begin])
-            part2 = deepcopy(sol2.days[begin:end])
-            part3 = deepcopy(sol1.days[end:])
-            child = Solution(len(self.fruit_types), self.num_days)
-            child.days = part1 + part2 + part3
+            if bruteforce_comapre:
+                begin = 1
+                end = 1
+                child = Solution(len(self.fruit_types), self.num_days)
+                part1 = deepcopy(sol1.days[0:1])
+                part2 = deepcopy(sol2.days[1:])
+                child.days = part1+part2
+            else:
+                begin = random.randint(3, self.num_days-2)
+                end = random.randint(begin+1, self.num_days-1)
+                part1 = deepcopy(sol1.days[0:begin])
+                part2 = deepcopy(sol2.days[begin:end])
+                part3 = deepcopy(sol1.days[end:])
+                child = Solution(len(self.fruit_types), self.num_days)
+                child.days = part1 + part2 + part3
 
             for i in range(len(self.fruit_types)-1):
                 self.update_warehouse(sol2, child, begin - 1, i)
@@ -168,8 +176,23 @@ class Orchard:
 
     # znajduje jak najlepsze rozwiazanie metoda Symulowanego Wyżarzania
     def simulated_annealing(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha,
-                            neighbour_type, initial_sol, verbose=True):
-        solution = self.create_initial_population()[initial_sol][0]
+                            neighbour_type, initial_sol, verbose=True, bruteforce_comapre=None):
+        """
+
+        :param T_start:
+        :param T_stop:
+        :param iterations_in_temp:
+        :param epsilon:
+        :param iterations_epsilon:
+        :param alpha:
+        :param neighbour_type:
+        :param initial_sol:
+        :param verbose:
+        :param bruteforce_comapre: lista stretegii zbiorów przekazywana podczas porównania z ręczym obliczeniem
+                                    rozwiązania
+        :return:
+        """
+        solution = self.create_initial_population(bruteforce_comapre=bruteforce_comapre)[initial_sol][0]
         best_solution = solution
         best_profit = self.calculate_objective_fun(solution)
         T = T_start                         #Temperatura
@@ -207,10 +230,12 @@ class Orchard:
         return best_solution, best_profit, (self.num_draws, self.num_ok_draws), profit_lst
 
     def genetic_algorithm(self, max_iter_no_progress, max_iter, replacement_rate=0.5, mutation_proba=0.2,
-                          verbose: bool=True, random_demand_rate: bool=False, return_best_results: bool=False):
+                          verbose: bool=True, random_demand_rate: bool=False, return_best_results: bool=False, bruteforce_comapre=None):
         """
         Metoda znajdująca rozwiązanie optymalne za pomocą algorytmu genetycznego
 
+        :param bruteforce_comapre: lista stretegii zbiorów przekazywana podczas porównania z ręczym obliczeniem
+                                    rozwiązania
         :param return_best_results: Parametr używany podczas eksperymentów. Jeśli jest ustawiony na True
                                     to funkcja zwraca dodatkową listę z najlepszymi wynikami w każdej iteracji.
         :param random_demand_rate: Parametr random_demand_rate przekazywaniy do funkcji generującej
@@ -224,7 +249,7 @@ class Orchard:
         :param verbose: wyświetlaj numer iteracji i dotychczas najlepszy wynik
         :return: Znalezione rozwiązanie, koszt rozwiązania, ilość wykonanych iteracji
         """
-        solutions = self.create_initial_population(random_demand_rate=random_demand_rate)
+        solutions = self.create_initial_population(random_demand_rate=random_demand_rate, bruteforce_comapre=bruteforce_comapre)
 
         # population to lista list, w której przechowujemy rozwiązania.
         # Poszczególne elementy listy population to dwuelementowe
@@ -268,9 +293,13 @@ class Orchard:
 
                 parents = self.selection(population)
                 parents = [parents[i][0] for i in range(len(parents))]
-                
-                child1 = self.crossover(parents[0], parents[1])
-                child2 = self.crossover(parents[1], parents[0])
+
+                testing = False
+                if bruteforce_comapre is not None:
+                    testing = True
+
+                child1 = self.crossover(parents[0], parents[1], bruteforce_comapre=testing)
+                child2 = self.crossover(parents[1], parents[0], bruteforce_comapre=testing)
 
                 if child1 is None or child2 is None:
                     children_count -= 2
@@ -479,14 +508,30 @@ class Orchard:
 
         return solution
 
-    def create_initial_population(self, random_demand_rate: bool = False):
+    def create_initial_population(self, random_demand_rate: bool = False, bruteforce_comapre=None):
         """
         Funkcja generuje populację rozwiązań początkowych. Funckja zwraca listę
         krotek, gdzie pierwszy element krotki to rozwiązanie a drugi to informacja
         czy rozwiązanie spełnia ograniczenia.
 
+        :param bruteforce_comapre: lista stretegii zbiorów przekazywana podczas porównania z ręczym obliczeniem
+                                    rozwiązania
         :return:
         """
+        if bruteforce_comapre is not None:
+            solutions = []
+            for strategy in bruteforce_comapre:
+                solution = self.generate_all_to_wholesale(harvest_strategies=strategy)
+                solutions.append(solution)
+                solution = self.generate_satisfy_demand(harvest_strategies=strategy, demand_rate=1)
+                solutions.append(solution)
+                solution = self.generate_satisfy_demand(harvest_strategies=strategy, demand_rate=0.5)
+                solutions.append(solution)
+            result = []
+            for el in solutions:
+                result.append((el, self.check_if_sol_acceptable(el)))
+            return result
+
         fruit_types_count = len(self.fruit_types)
         solutions = []
 
@@ -661,10 +706,11 @@ class Orchard:
         five = check_if_warehouse_sold(solution)
         six = check_if_today_amount_correct(solution)
         seven = check_if_non_negative(solution)
+        eight = check_if_sold_market_less_than_demand(solution, self.fruit_types)
 
         #print(one, two, four, five, six)
 
-        return one and two and four and five and six and seven
+        return one and two and four and five and six and seven and eight
 
     def format_solution(self, solution: Solution):
         txt = ""

@@ -193,3 +193,22 @@ def check_if_non_negative(solution: Solution) -> bool:
             result = False
             break
     return result
+
+
+def check_if_sold_market_less_than_demand(solution: Solution, fruit_types: List[FruitTypeInfo]) -> bool:
+    """
+    Funkcja sprawdzająca czy ilość owoców sprzedanych na targu jest
+    mniejsza lub równa od popytu
+    :param fruit_types:
+    :param solution:
+    :return:
+    """
+    result = True
+    for i, day in enumerate(solution.days):
+        for fruit_id in range(len(fruit_types)):
+            # Sprawdź czy ilość owoców sprzedanych na targu
+            # nie jest większa niż popyt danego dnia
+            if day.sold_market[fruit_id] > fruit_types[fruit_id].demand[i]:
+                result = False
+                break
+    return result
