@@ -60,34 +60,7 @@ class Orchard:
                     solution.days[day + 1].sold_market[type] += delta
 
     #losuje dopuszcalnego sąsiada initial_solution
-    def draw_solution(self, initial_solution, neighbour_type):
-
-        #UWAGA nie działa, nie uzywac, nie usuwac
-        def neighbour0(org_solution):
-            solution = deepcopy(org_solution)
-            prev_solution = deepcopy(org_solution)
-            random_days = random.sample(range(0, self.num_days), 2)
-            random_types = random.sample(range(0, len(self.fruit_types)), 1)
-            #random_part_of_sol = random.randint(0, 2)
-
-            for day in random_days:
-                for type in random_types:
-
-                    changed = solution.days[day].harvested[type] + random.randint(-2, 2)
-                    if changed >= 0 and changed + sum(solution.days[day].harvested) - solution.days[day].harvested[type] + changed <= self.max_daily_harvest:
-                        solution.days[day].harvested[type] = changed
-
-                    changed = solution.days[day].sold_market[type] + random.randint(-2, 2)
-                    if 0 <= changed <= self.fruit_types[type].demand[day] and changed <= solution.days[day-1].warehouse[type] + solution.days[day].harvested[type]:
-                        solution.days[day].sold_market[type] = changed
-
-                    changed = solution.days[day].sold_wholesale[type] + random.randint(-2, 2)
-                    if 0 <= changed <= solution.days[day - 1].warehouse[type] + solution.days[day].harvested[type] - solution.days[day].sold_market[type]:
-                        solution.days[day].sold_wholesale[type] = changed
-                    self.update_warehouse(prev_solution, solution, day, type)
-
-            return solution
-
+    def draw_solution(self, initial_solution):
         #losuje sąsiada w pobliżu org_solution, sąsiad może być rozwiązaniem nie dopuszczalnym
         #zmienia w losowym dniu losowy typ o sprzedaż na markecie lub na skupie lub zbiory
         def neighbour1(org_solution):
@@ -114,20 +87,15 @@ class Orchard:
 
             return solution
 
-        #wybór jednego z typów sąsiedztwa
-        neighbour_types = [neighbour0, neighbour1]
-        neighbour = neighbour_types[neighbour_type]
-
         #prubuje zznalezc sasiada jesli w ciagu 100 losowan nie znajdzie akceptowalnego rzuca wyjątek
         for _ in range(100):
-            sol = neighbour(initial_solution)
+            sol = neighbour1(initial_solution)
             self.num_draws += 1
             if self.check_if_sol_acceptable(sol):
                 self.num_ok_draws += 1
                 return sol
 
         raise Exception("error nie znaleziono otoczenia")
-
 
     # metoda wybierająca rodziców
     def selection(self, population):
@@ -176,7 +144,7 @@ class Orchard:
 
     # znajduje jak najlepsze rozwiazanie metoda Symulowanego Wyżarzania
     def simulated_annealing(self, T_start, T_stop, iterations_in_temp, epsilon, iterations_epsilon, alpha,
-                            neighbour_type, initial_sol, verbose=True, bruteforce_comapre=None):
+                            initial_sol, verbose=True, bruteforce_comapre=None):
         """
 
         :param T_start:
@@ -185,7 +153,6 @@ class Orchard:
         :param epsilon:
         :param iterations_epsilon:
         :param alpha:
-        :param neighbour_type:
         :param initial_sol:
         :param verbose:
         :param bruteforce_comapre: lista stretegii zbiorów przekazywana podczas porównania z ręczym obliczeniem
@@ -205,7 +172,7 @@ class Orchard:
             if verbose:
                 print(f"best profit: {best_profit} | temperature: {T}")
             for j in range(iterations_in_temp):
-                candidate_sol = self.draw_solution(solution, neighbour_type)        #losowanie sąsiada z otoczenia
+                candidate_sol = self.draw_solution(solution)        #losowanie sąsiada z otoczenia
                 candidate_sol_fun = self.calculate_objective_fun(candidate_sol)     #wyznaczenie fun celu dla wylosowanego
                 delta = candidate_sol_fun - self.calculate_objective_fun(solution)  #zmiana wart funkcji celu pomiędzy starym a nowym rozw
                 if delta >= 0:      #polepszenie rozwiazania
@@ -533,21 +500,28 @@ class Orchard:
             return result
 
         fruit_types_count = len(self.fruit_types)
+
         solutions = []
 
         # Zmienne har_per_type określają ile owoców danego typu
         # chcemy zbierać. Zakładamy tutaj, że wszystkich owoców zbieramy
         # po równo. Musimy również pamiętać że łączne zbiory nie mogą
-        # przekroczyć dziennego limitu zbiorów.
+        # przekroczyć dziennego limitu zbiorów. Symbol // oznacza dzielenie
+        # całkowite.
         har_per_type1 = self.max_daily_harvest // fruit_types_count
         har_per_type2 = int(0.9 * self.max_daily_harvest) // fruit_types_count
         har_per_type3 = int(0.7 * self.max_daily_harvest) // fruit_types_count
         har_per_type4 = int(0.5 * self.max_daily_harvest) // fruit_types_count
 
+        # lista do przechowywania poszczególnych strategii zbiorów
         all_strategies = []
 
         x = self.num_days//4
+        # harvest_strategies1 to lista będąca strategią zbiorów
         harvest_strategies1 = []
+
+        # zapis [har_per_type1] * fruit_types_count oznacza stworzenie
+        # listy o długości fruit_types_count wypełnionej wartością har_per_type1.
         harvest_per_type = [har_per_type1] * fruit_types_count
         harvest_strategies1.append([x, harvest_per_type])
         harvest_per_type = [har_per_type2] * fruit_types_count
@@ -635,7 +609,6 @@ class Orchard:
                         all_strategies2[i][strat_id][1][fruit_id] -= fruit_delta
                         all_strategies2[i][strat_id][1][fruit_id+1] += fruit_delta
 
-
         # Strategia polegająca na przeznaczaniu całych zbiorów do skupu
         # ze zmienionym parametrem harvest_per_type
         solution = self.generate_all_to_wholesale(all_strategies[0])
@@ -701,6 +674,7 @@ class Orchard:
         """
         one = check_fruit_limits(solution, self.fruit_types)
         two = check_harvest_limits(solution, self.max_daily_harvest)
+        # Z ograniczenia trzeciego zrezygnowaliśmy
         #three = check_minimum_amount_sold(solution, self.fruit_types)
         four = check_warehouse_limits(solution, self.warehouse_capacity)
         five = check_if_warehouse_sold(solution)
@@ -760,3 +734,8 @@ class Orchard:
             profit -= fruit.planting_cost
 
         return profit
+
+
+
+
+

@@ -7,16 +7,15 @@ Do poprawnego działania programu konieczne jest zainstalowanie pakietów z plik
 Aby móc korzystać z terminala do obsługi programu należy w terminalu przejść folderu zawierającego m.in. foldery ```project_app``` oraz ```wyniki```.
 
 Przykładowa komenda uruchamiająca algorytm symulowanego wyrzarzania:
-```python -m project_app annealing --t_start 5000 --t_stop 800 --iter_in_temp 100 --epsilon 2 --iter_epsilon 10 --alpha 0.99 --neighbour_type 1 --initial_sol 11 --verbose```
+```python -m project_app annealing --t_start 5000 --t_stop 800 --iter_in_temp 100 --epsilon 2 --iter_epsilon 10 --alpha 0.99 --initial_sol 11 --verbose```
 
 Znaczenie poszczególnych parametrów:
 - ```--t_start``` temperatura początkowa
 - ```--t_stop``` temperatura końcowa
 - ```--iter_in_temp``` ilość iteracji wykonywanych dla jednej temperatury
-- ```--epsilon``` minimalna wartość o którą musi zmienić funkcja celu przez okres iteracji określony przez ```--iter_epsilon``` aby algorytm nie zakończył działania
+- ```--epsilon``` minimalna wartość o którą musi zmienić się funkcja celu przez okres iteracji określony przez ```--iter_epsilon``` aby algorytm nie zakończył działania
 - ```--iter_epsilon``` ilość iteracji po której algorytm zakończy działanie jeśli funkcja celu nie zmieniła się o więcej niż epsilon
 - ```--alpha``` współczynnik o jaki zmniejszana jest temperatura
-- ```--neighbour_type ``` metoda wyboru sąsiada
 - ```--initial_sol``` numer rozwiązania początkowego
 - ```--verbose``` parametr opcjonalny, jego użycie skutkuje wyświetlaniem aktualnej temperatury oraz najlpeszego zysku w trakcie pracy algorytmu
 

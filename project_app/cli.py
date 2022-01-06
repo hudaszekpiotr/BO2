@@ -46,7 +46,6 @@ def annealing(t_start: int = typer.Option(..., "--t_start"),
                 epsilon: int = typer.Option(..., "--epsilon"),
                 iter_epsilon: int = typer.Option(..., "--iter_epsilon"),
                 alpha: float = typer.Option(..., "--alpha"),
-                neighbour_type: int = typer.Option(..., "--neighbour_type", min=1, max=2),
                 initial_sol: int = typer.Option(..., "--initial_sol"),
                 verbose: bool = typer.Option(False,"--verbose")) -> None:
 
@@ -56,7 +55,7 @@ def annealing(t_start: int = typer.Option(..., "--t_start"),
     else:
         sol, profit, _, _ = orchard.simulated_annealing(T_start=t_start, T_stop=t_stop, iterations_in_temp=iter_in_temp,
                                                         epsilon=epsilon, iterations_epsilon=iter_epsilon, alpha=alpha,
-                                                        neighbour_type=neighbour_type, initial_sol=initial_sol, verbose=verbose)
+                                                        initial_sol=initial_sol, verbose=verbose)
 
         results = f"{orchard.format_solution(sol)}Zysk: {profit}"
         print(results)
