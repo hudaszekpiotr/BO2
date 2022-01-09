@@ -101,15 +101,19 @@ class Orchard:
     def selection(self, population):
         parents = []
         while len(parents) < 2:
+            # losuje dwóch kandydatów do listy rodziców
             candidate1 = random.randint(0, len(population)-1)
             candidate2 = random.randint(0, len(population)-1)
             while candidate1 == candidate2:
+                # w przypadku, gdy wylosowano dwóch takich samych 
+                # kandydatów, losowanie jest powtarzane 
                 candidate2 = random.randint(0, len(population)-1)
             if population[candidate1][1] > population[candidate2][1]:
                 parents.append(population[candidate1])
+                # do listy rodziców dodawany jest kandydat
+                # dający większą wartość funkcji celu
             else:
                 parents.append(population[candidate2])
-        #print(f"{parents[0][1]},{parents[1][1]}")
         return parents
 
     #metoda krzyżująca dwa rozwiązania sol1 i sol2
